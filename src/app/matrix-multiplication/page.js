@@ -90,7 +90,7 @@ const MatrixMultiplication = () => {
     }
     const arr2dInputResults1 = [];
     while (inputResult1.length)
-      arr2dInputResults1.push(inputResult1.splice(0, row1));
+      arr2dInputResults1.push(inputResult1.splice(0, col1));
     setResult1(arr2dInputResults1);
   };
   ///////////////////////////////MATRIX B/////////////////////////////////////
@@ -172,11 +172,18 @@ const MatrixMultiplication = () => {
     }
     const arr2dInputResults2 = [];
     while (inputResult2.length)
-      arr2dInputResults2.push(inputResult2.splice(0, row2));
+      arr2dInputResults2.push(inputResult2.splice(0, col2));
     setResult2(arr2dInputResults2);
   };
   //MULTIPLICATION FUNCTION
   const multiplicationFuch = (a, b) => {
+    console.log("a", a[0].length);
+    console.log("b", b.length);
+    console.log("b", b);
+
+    if (a[0].length !== b.length) {
+      return alert("Dimensi matriks tidak sesuai");
+    }
     if (!isInputValid(a) || !isInputValid(b)) {
       return alert("Input harus berupa angka");
     }
@@ -190,27 +197,25 @@ const MatrixMultiplication = () => {
       }
       return true;
     }
-
-    let result = [];
-
-    // Validasi dimensi matriks
-    if (a[0].length !== b.length) {
-      alert("Dimensi matriks tidak sesuai");
-      return null;
+    // Membuat matriks kosong dengan ukuran yang sesuai
+    let resultMatrix = [];
+    for (let i = 0; i < a.length; i++) {
+      resultMatrix[i] = new Array(b[0].length).fill(0);
     }
 
+    // Melakukan operasi perkalian matriks
     for (let i = 0; i < a.length; i++) {
-      result[i] = [];
       for (let j = 0; j < b[0].length; j++) {
-        let sum = 0;
-        for (let k = 0; k < a[0].length; k++) {
-          sum += a[i][k] * b[k][j];
+        for (let k = 0; k < b.length; k++) {
+          resultMatrix[i][j] += a[i][k] * b[k][j];
         }
-        result[i][j] = sum;
       }
     }
-    setResults(result);
+    setResults(resultMatrix);
   };
+  console.log("hasil", results);
+  console.log("A", result1);
+  console.log("B", result2);
 
   return (
     <main className="min-w-full min-h-screen flex justify-center items-center">

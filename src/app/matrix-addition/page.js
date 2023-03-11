@@ -90,7 +90,7 @@ const MatrixAddition = () => {
     }
     const arr2dInputResults1 = [];
     while (inputResult1.length)
-      arr2dInputResults1.push(inputResult1.splice(0, row1));
+      arr2dInputResults1.push(inputResult1.splice(0, col1));
     setResult1(arr2dInputResults1);
   };
   ///////////////////////////////MATRIX B/////////////////////////////////////
@@ -172,7 +172,7 @@ const MatrixAddition = () => {
     }
     const arr2dInputResults2 = [];
     while (inputResult2.length)
-      arr2dInputResults2.push(inputResult2.splice(0, row2));
+      arr2dInputResults2.push(inputResult2.splice(0, col2));
     setResult2(arr2dInputResults2);
   };
   //////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
