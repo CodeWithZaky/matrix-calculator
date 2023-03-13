@@ -1,44 +1,69 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { AiFillSetting } from "react-icons/ai";
 const MatrixReduction = () => {
-  const [result1, setResult1] = useState([]);
-  const [result2, setResult2] = useState([]);
-  const [results, setResults] = useState([]);
+  const [matrixA, setMatrixA] = useState([[0,0],[0,0]]);
+  const [matrixB, setMatrixB] = useState([[0,0],[0,0]]);
+  const [results, setResults] = useState([[0,0],[0,0]]);
+  const [rowInput1, setRowInput1] = useState([2]);
+  const [colInput1, setColInput1] = useState([2]);
+  const [rowInput2, setRowInput2] = useState([2]);
+  const [colInput2, setColInput2] = useState([2]);
+  const [toggle1, setToggle1] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
 
-  const reductionFuch = (a, b) => {
-    // Cek apakah ukuran kedua matriks sama
-    if (a.length !== b.length || a[0].length !== b[0].length) {
-      return alert("pada operasi penambahan dan pengurangan ordo harus sama");
-    }
-    // Buat matriks kosong untuk menyimpan hasil penjumlahan
-    const result = [];
-    // Lakukan penjumlahan elemen per elemen dari kedua matriks
-    for (let i = 0; i < a.length; i++) {
-      const row = [];
-      for (let j = 0; j < a[0].length; j++) {
-        if (isNaN(a[i][j]) || isNaN(b[i][j])) {
-          return alert("Input harus berupa angka");
-        }
-        row.push(parseInt(a[i][j]) - parseInt(b[i][j]));
+  //////////////////////////////MATRIX A////////////////////////////////////
+  //////////////////////////////MATRIX A////////////////////////////////////
+  //////////////////////////////MATRIX A////////////////////////////////////
+  //SETTING INPUT
+  const toggleButton1 = () => {
+    setToggle1(!toggle1);
+  };
+  const handleSubmitOrdo1 = (e) => {
+    e.preventDefault();
+    for (let i = 0; i < 2; i++) {
+      if (e.target[i].value === "") {
+        return alert("masukan harus di isi minimal 1");
       }
-      result.push(row);
+      if (e.target[i].value < 1) {
+        return alert("masukan harus di isi minimal 1");
+      }
+      if (isNaN(e.target[i].value)) {
+        return alert("masukan berupa angka");
+      }
     }
-    setResults(result);
+    setRowInput1(e.target[0].value);
+    setColInput1(e.target[1].value);
   };
 
-  //////////////////////////////////////////////////////////////////
-  const row1 = 2;
-  const col1 = 2;
+  const settingInput1 = (
+    <form onSubmit={handleSubmitOrdo1} className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl">
+      <div>row</div>
+      <input
+        type="number"
+        defaultValue={rowInput1}
+        className="border border-slate-700 rounded-xl text-center mb-2"
+      />
+      <div>colomn</div>
+      <input
+        type="number"
+        defaultValue={colInput1}
+        className="border border-slate-700 rounded-xl text-center mb-2"
+      />
+      <button type="submit" className="mt-2 bg-green-500 rounded-sm">save</button>
+    </form>
+  );
+  const row1 = rowInput1;
+  const col1 = colInput1;
   const arrRow1 = [];
   const arrInput1 = [];
-
+  //ORDO INPUT
   for (let i = 0; i < col1; i++) {
     arrRow1.push(
       <input
         key={i}
         defaultValue={0}
-        className="border border-black w-[100px] h-[100px]"
-        required
+        className="border border-black w-[100px] h-[100px] rounded-xl text-center text-2xl font-bold"
       />
     );
   }
@@ -65,12 +90,53 @@ const MatrixReduction = () => {
     }
     const arr2dInputResults1 = [];
     while (inputResult1.length)
-      arr2dInputResults1.push(inputResult1.splice(0, row1));
-    setResult1(arr2dInputResults1);
+      arr2dInputResults1.push(inputResult1.splice(0, col1));
+    setMatrixA(arr2dInputResults1);
   };
-  ////////////////////////////////////////////////////////////////////
-  const row2 = 2;
-  const col2 = 2;
+  ///////////////////////////////MATRIX B/////////////////////////////////////
+  ///////////////////////////////MATRIX B/////////////////////////////////////
+  ///////////////////////////////MATRIX B/////////////////////////////////////
+  //SETTING INPUT
+  const toggleButton2 = () => {
+    setToggle2(!toggle2);
+  };
+  const handleSubmitOrdo2 = (e) => {
+    e.preventDefault();
+    for (let i = 0; i < 2; i++) {
+      if (e.target[i].value === "") {
+        return alert("masukan harus di isi minimal 1");
+      }
+      if (e.target[i].value < 1) {
+        return alert("masukan harus di isi minimal 1");
+      }
+      if (isNaN(e.target[i].value)) {
+        return alert("masukan berupa angka");
+      }
+    }
+    setRowInput2(e.target[0].value);
+    setColInput2(e.target[1].value);
+  };
+
+  const settingInput2 = (
+    <form onSubmit={handleSubmitOrdo2} className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl">
+      <div>row</div>
+      <input
+        type="number"
+        defaultValue={rowInput2}
+        className="border border-slate-700 rounded-xl text-center mb-2"
+      />
+      <div>colomn</div>
+      <input
+        type="number"
+        defaultValue={colInput2}
+        className="border border-slate-700 rounded-xl text-center mb-2"
+      />
+      <button type="submit" className="mt-2 bg-green-500 rounded-sm">save</button>
+    </form>
+  );
+  //
+  const row2 = rowInput2;
+  const col2 = colInput2;
   const arrRow2 = [];
   const arrInput2 = [];
 
@@ -79,7 +145,7 @@ const MatrixReduction = () => {
       <input
         defaultValue={0}
         key={i}
-        className="border border-black w-[100px] h-[100px]"
+        className="border border-black w-[100px] h-[100px] rounded-xl text-center text-2xl font-bold"
       />
     );
   }
@@ -106,28 +172,55 @@ const MatrixReduction = () => {
     }
     const arr2dInputResults2 = [];
     while (inputResult2.length)
-      arr2dInputResults2.push(inputResult2.splice(0, row2));
-    setResult2(arr2dInputResults2);
+      arr2dInputResults2.push(inputResult2.splice(0, col2));
+    setMatrixB(arr2dInputResults2);
+  };
+  //////////////////////////REDUCTION FUNCTION/////////////////////////////////////////
+  //////////////////////////REDUCTION FUNCTION/////////////////////////////////////////
+  //////////////////////////REDUCTION FUNCTION/////////////////////////////////////////
+  const reductionFuch = (a, b) => {
+    // Cek apakah ukuran kedua matriks sama
+    if (a.length !== b.length) {
+      return alert("pada operasi penambahan dan pengurangan ordo harus sama");
+    }
+    // Buat matriks kosong untuk menyimpan hasil penjumlahan
+    const result = [];
+    // Lakukan penjumlahan elemen per elemen dari kedua matriks
+    for (let i = 0; i < a.length; i++) {
+      const row = [];
+      for (let j = 0; j < a[0].length; j++) {
+        if (isNaN(a[i][j]) || isNaN(b[i][j])) {
+          return alert("Input harus berupa angka");
+        }
+        row.push(parseInt(a[i][j]) - parseInt(b[i][j]));
+      }
+      result.push(row);
+    }
+    setResults(result);
   };
 
   return (
-    <main className="w-full h-auto flex justify-center items-center">
+    <main className="min-w-full min-h-screen flex justify-center items-center">
+      {toggle1 ? settingInput1 : ""}
       <form onSubmit={handleSubmit1} className="flex-col mx-2">
+        <AiFillSetting onClick={toggleButton1} className="mb-2 text-2xl text-slate-800"/>
         {arrInput1}
-        <button type="submit">submit</button>
+        <button type="submit" className="bg-slate-300 rounded-xl px-3 py-0.5 mt-2">submit</button>
       </form>
-      <div className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-700 rounded-full flex justify-center items-center text-white">
-        -
+      <div className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-700 rounded-full flex justify-center items-center text-white mx-2">
+        +
       </div>
+      {toggle2 ? settingInput2 : ""}
       <form onSubmit={handleSubmit2} className="flex-col">
+        <AiFillSetting onClick={toggleButton2} className="mb-2 text-2xl text-slate-800"/>
         {arrInput2}
-        <button type="submit">submit 2</button>
+        <button type="submit" className="bg-slate-300 rounded-xl px-3 py-0.5 mt-2">submit 2</button>
       </form>
       <button
         onClick={() => {
-          reductionFuch(result1, result2);
+          reductionFuch(matrixA, matrixB);
         }}
-        className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-700 rounded-full flex justify-center items-center text-white"
+        className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-700 rounded-full flex justify-center items-center text-white mx-2"
       >
         =
       </button>
@@ -139,7 +232,7 @@ const MatrixReduction = () => {
                 return (
                   <div
                     key={y}
-                    className=" w-[100px] h-[100px] border border-red-500"
+                    className=" w-[100px] h-[100px] flex justify-center items-center border border-red-600 rounded-xl text-2xl font-bold text-red-600"
                   >
                     {x}
                   </div>

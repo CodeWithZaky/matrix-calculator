@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { AiFillSetting } from "react-icons/ai";
 const MatrixMultiplication = () => {
-  const [result1, setResult1] = useState([]);
-  const [result2, setResult2] = useState([]);
-  const [results, setResults] = useState([]);
+  const [matrixA, setMatrixA] = useState([[0,0],[0,0]]);
+  const [matrixB, setMatrixB] = useState([[0,0],[0,0]]);
+  const [results, setResults] = useState([[0,0],[0,0]]);
   const [rowInput1, setRowInput1] = useState([2]);
   const [colInput1, setColInput1] = useState([2]);
   const [rowInput2, setRowInput2] = useState([2]);
@@ -37,20 +37,20 @@ const MatrixMultiplication = () => {
   };
 
   const settingInput1 = (
-    <form onSubmit={handleSubmitOrdo1} className="flex flex-col">
+    <form onSubmit={handleSubmitOrdo1} className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl">
       <div>row</div>
       <input
         type="number"
-        placeholder="number"
-        className="border border-black"
+        defaultValue={rowInput1}
+        className="border border-slate-700 rounded-xl text-center mb-2"
       />
       <div>colomn</div>
       <input
         type="number"
-        placeholder="number"
-        className="border border-black"
+        defaultValue={colInput1}
+        className="border border-slate-700 rounded-xl text-center mb-2"
       />
-      <button type="submit">ok</button>
+      <button type="submit" className="mt-2 bg-green-500 rounded-sm">save</button>
     </form>
   );
   const row1 = rowInput1;
@@ -63,7 +63,7 @@ const MatrixMultiplication = () => {
       <input
         key={i}
         defaultValue={0}
-        className="border border-black w-[100px] h-[100px]"
+        className="border border-black w-[100px] h-[100px] rounded-xl text-center text-2xl font-bold"
       />
     );
   }
@@ -91,7 +91,7 @@ const MatrixMultiplication = () => {
     const arr2dInputResults1 = [];
     while (inputResult1.length)
       arr2dInputResults1.push(inputResult1.splice(0, col1));
-    setResult1(arr2dInputResults1);
+    setMatrixA(arr2dInputResults1);
   };
   ///////////////////////////////MATRIX B/////////////////////////////////////
   ///////////////////////////////MATRIX B/////////////////////////////////////
@@ -118,20 +118,20 @@ const MatrixMultiplication = () => {
   };
 
   const settingInput2 = (
-    <form onSubmit={handleSubmitOrdo2} className="flex flex-col">
+    <form onSubmit={handleSubmitOrdo2} className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl">
       <div>row</div>
       <input
         type="number"
-        placeholder="number"
-        className="border border-black"
+        defaultValue={rowInput2}
+        className="border border-slate-700 rounded-xl text-center mb-2"
       />
       <div>colomn</div>
       <input
         type="number"
-        placeholder="number"
-        className="border border-black"
+        defaultValue={colInput2}
+        className="border border-slate-700 rounded-xl text-center mb-2"
       />
-      <button type="submit">ok</button>
+      <button type="submit" className="mt-2 bg-green-500 rounded-sm">save</button>
     </form>
   );
   //
@@ -145,7 +145,7 @@ const MatrixMultiplication = () => {
       <input
         defaultValue={0}
         key={i}
-        className="border border-black w-[100px] h-[100px]"
+        className="border border-black w-[100px] h-[100px] rounded-xl text-center text-2xl font-bold"
       />
     );
   }
@@ -173,14 +173,12 @@ const MatrixMultiplication = () => {
     const arr2dInputResults2 = [];
     while (inputResult2.length)
       arr2dInputResults2.push(inputResult2.splice(0, col2));
-    setResult2(arr2dInputResults2);
+    setMatrixB(arr2dInputResults2);
   };
-  //MULTIPLICATION FUNCTION
+    ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
+    ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
+    ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
   const multiplicationFuch = (a, b) => {
-    console.log("a", a[0].length);
-    console.log("b", b.length);
-    console.log("b", b);
-
     if (a[0].length !== b.length) {
       return alert("Dimensi matriks tidak sesuai");
     }
@@ -213,32 +211,29 @@ const MatrixMultiplication = () => {
     }
     setResults(resultMatrix);
   };
-  console.log("hasil", results);
-  console.log("A", result1);
-  console.log("B", result2);
 
   return (
     <main className="min-w-full min-h-screen flex justify-center items-center">
       {toggle1 ? settingInput1 : ""}
-      <form onSubmit={handleSubmit1} className="flex-col mx-2">
-        <AiFillSetting onClick={toggleButton1} />
+      <form onSubmit={handleSubmit1} className="flex-col">
+        <AiFillSetting onClick={toggleButton1} className="mb-2 text-2xl text-slate-800"/>
         {arrInput1}
-        <button type="submit">submit</button>
+        <button type="submit" className="bg-slate-300 rounded-xl px-3 py-0.5 mt-2">submit</button>
       </form>
-      <div className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-700 rounded-full flex justify-center items-center text-white">
+      <div className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-800 rounded-full flex justify-center items-center text-white mx-2">
         x
       </div>
       {toggle2 ? settingInput2 : ""}
       <form onSubmit={handleSubmit2} className="flex-col">
-        <AiFillSetting onClick={toggleButton2} />
+        <AiFillSetting onClick={toggleButton2} className="mb-2 text-2xl text-slate-800"/>
         {arrInput2}
-        <button type="submit">submit 2</button>
+        <button type="submit" className="bg-slate-300 rounded-xl px-3 py-0.5 mt-2">submit 2</button>
       </form>
       <button
         onClick={() => {
-          multiplicationFuch(result1, result2);
+          multiplicationFuch(matrixA, matrixB);
         }}
-        className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-700 rounded-full flex justify-center items-center text-white"
+        className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-700 rounded-full flex justify-center items-center text-white mx-2"
       >
         =
       </button>
@@ -250,7 +245,7 @@ const MatrixMultiplication = () => {
                 return (
                   <div
                     key={y}
-                    className=" w-[100px] h-[100px] border border-red-500"
+                    className=" w-[100px] h-[100px] flex justify-center items-center border border-red-600 rounded-xl text-2xl font-bold text-red-600"
                   >
                     {x}
                   </div>
