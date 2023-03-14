@@ -1,10 +1,22 @@
 "use client";
 import React, { useState } from "react";
+import NavLink from "components/NavLink";
+
 import { AiFillSetting } from "react-icons/ai";
+import TitleMatrix from "components/TitleMatrix";
 const MatrixAddition = () => {
-  const [matrixA, setMatrixA] = useState([[0,0],[0,0]]);
-  const [matrixB, setMatrixB] = useState([[0,0],[0,0]]);
-  const [results, setResults] = useState([[0,0],[0,0]]);
+  const [matrixA, setMatrixA] = useState([
+    [0, 0],
+    [0, 0],
+  ]);
+  const [matrixB, setMatrixB] = useState([
+    [0, 0],
+    [0, 0],
+  ]);
+  const [results, setResults] = useState([
+    [0, 0],
+    [0, 0],
+  ]);
   const [rowInput1, setRowInput1] = useState([2]);
   const [colInput1, setColInput1] = useState([2]);
   const [rowInput2, setRowInput2] = useState([2]);
@@ -36,7 +48,10 @@ const MatrixAddition = () => {
   };
 
   const settingInput1 = (
-    <form onSubmit={handleSubmitOrdo1} className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl">
+    <form
+      onSubmit={handleSubmitOrdo1}
+      className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl"
+    >
       <div>row</div>
       <input
         type="number"
@@ -49,7 +64,9 @@ const MatrixAddition = () => {
         defaultValue={colInput1}
         className="border border-slate-700 rounded-xl text-center mb-2"
       />
-      <button type="submit" className="mt-2 bg-green-500 rounded-sm">save</button>
+      <button type="submit" className="mt-2 bg-green-500 rounded-sm">
+        save
+      </button>
     </form>
   );
   const row1 = rowInput1;
@@ -117,7 +134,10 @@ const MatrixAddition = () => {
   };
 
   const settingInput2 = (
-    <form onSubmit={handleSubmitOrdo2} className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl">
+    <form
+      onSubmit={handleSubmitOrdo2}
+      className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl"
+    >
       <div>row</div>
       <input
         type="number"
@@ -130,7 +150,9 @@ const MatrixAddition = () => {
         defaultValue={colInput2}
         className="border border-slate-700 rounded-xl text-center mb-2"
       />
-      <button type="submit" className="mt-2 bg-green-500 rounded-sm">save</button>
+      <button type="submit" className="mt-2 bg-green-500 rounded-sm">
+        save
+      </button>
     </form>
   );
   //
@@ -199,47 +221,67 @@ const MatrixAddition = () => {
   };
 
   return (
-    <main className="min-w-full min-h-screen flex justify-center items-center">
-      {toggle1 ? settingInput1 : ""}
-      <form onSubmit={handleSubmit1} className="flex-col">
-        <AiFillSetting onClick={toggleButton1} className="mb-2 text-2xl text-slate-800"/>
-        {arrInput1}
-        <button type="submit" className="bg-slate-300 rounded-xl px-3 py-0.5 mt-2">submit</button>
-      </form>
-      <div className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-800 rounded-full flex justify-center items-center text-white mx-2">
-        +
-      </div>
-      {toggle2 ? settingInput2 : ""}
-      <form onSubmit={handleSubmit2} className="flex-col">
-        <AiFillSetting onClick={toggleButton2} className="mb-2 text-2xl text-slate-800"/>
-        {arrInput2}
-        <button type="submit" className="bg-slate-300 rounded-xl px-3 py-0.5 mt-2">submit</button>
-      </form>
-      <button
-        onClick={() => {
-          additionFuch(matrixA, matrixB);
-        }}
-        className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-800 rounded-full flex justify-center items-center text-white mx-2"
-      >
-        =
-      </button>
-      <div className="flex flex-col">
-        {results.map((m, n) => {
-          return (
-            <div key={n} className="flex">
-              {m.map((x, y) => {
-                return (
-                  <div
-                    key={y}
-                    className=" w-[100px] h-[100px] flex justify-center items-center border border-red-600 rounded-xl text-2xl font-bold text-red-600"
-                  >
-                    {x}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
+    <main className="flex flex-col justify-center items-center min-w-full min-h-screen">
+      <TitleMatrix title="MATRIX ADDITION"/>
+      <div className="w-auto h-auto flex justify-center items-center">
+        <NavLink />
+        {toggle1 ? settingInput1 : ""}
+        <form onSubmit={handleSubmit1} className="flex-col">
+          <AiFillSetting
+            onClick={toggleButton1}
+            className="mb-2 text-2xl text-slate-800"
+          />
+          {arrInput1}
+          <button
+            type="submit"
+            className="bg-slate-300 active:bg-green-400 rounded-xl px-3 py-0.5 mt-2"
+          >
+            submit
+          </button>
+        </form>
+        <div className="px-3 pb-2 text-5xl font-bold flex justify-center items-center mx-3">
+          +
+        </div>
+        {toggle2 ? settingInput2 : ""}
+        <form onSubmit={handleSubmit2} className="flex-col">
+          <AiFillSetting
+            onClick={toggleButton2}
+            className="mb-2 text-2xl text-slate-800"
+          />
+          {arrInput2}
+          <button
+            type="submit"
+            className="bg-slate-300 active:bg-green-400 rounded-xl px-3 py-0.5 mt-2"
+          >
+            submit
+          </button>
+        </form>
+        <button
+          onClick={() => {
+            additionFuch(matrixA, matrixB);
+          }}
+          className="px-5 pb-2 text-4xl bg-slate-600 border border-slate-800 rounded-full flex justify-center items-center text-white mx-3 active:bg-slate-300"
+        >
+          =
+        </button>
+        <div className="flex flex-col items-start">
+          {results.map((m, n) => {
+            return (
+              <div key={n} className="flex">
+                {m.map((x, y) => {
+                  return (
+                    <div
+                      key={y}
+                      className=" w-[100px] h-[100px] flex justify-center items-center border border-red-600 rounded-xl text-2xl font-bold text-red-600"
+                    >
+                      {x}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </main>
   );

@@ -1,7 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState} from "react";
+import NavLink from "components/NavLink";
+import TitleMatrix from "components/TitleMatrix";
+
 import { AiFillSetting } from "react-icons/ai";
-const MatrixReduction = () => {
+const MatrixMultiplication = () => {
   const [matrixA, setMatrixA] = useState([[0,0],[0,0]]);
   const [matrixB, setMatrixB] = useState([[0,0],[0,0]]);
   const [results, setResults] = useState([[0,0],[0,0]]);
@@ -175,75 +178,108 @@ const MatrixReduction = () => {
       arr2dInputResults2.push(inputResult2.splice(0, col2));
     setMatrixB(arr2dInputResults2);
   };
-  //////////////////////////REDUCTION FUNCTION/////////////////////////////////////////
-  //////////////////////////REDUCTION FUNCTION/////////////////////////////////////////
-  //////////////////////////REDUCTION FUNCTION/////////////////////////////////////////
-  const reductionFuch = (a, b) => {
-    // Cek apakah ukuran kedua matriks sama
-    if (a.length !== b.length) {
-      return alert("pada operasi penambahan dan pengurangan ordo harus sama");
+    ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
+    ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
+    ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
+  const multiplicationFuch = (a, b) => {
+    if (a[0].length !== b.length) {
+      return alert("Dimensi matriks tidak sesuai");
     }
-    // Buat matriks kosong untuk menyimpan hasil penjumlahan
-    const result = [];
-    // Lakukan penjumlahan elemen per elemen dari kedua matriks
-    for (let i = 0; i < a.length; i++) {
-      const row = [];
-      for (let j = 0; j < a[0].length; j++) {
-        if (isNaN(a[i][j]) || isNaN(b[i][j])) {
-          return alert("Input harus berupa angka");
+    if (!isInputValid(a) || !isInputValid(b)) {
+      return alert("Input harus berupa angka");
+    }
+    function isInputValid(matrix) {
+      for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+          if (isNaN(matrix[i][j])) {
+            return false;
+          }
         }
-        row.push(parseInt(a[i][j]) - parseInt(b[i][j]));
       }
-      result.push(row);
+      return true;
     }
-    setResults(result);
+    // Membuat matriks kosong dengan ukuran yang sesuai
+    let resultMatrix = [];
+    for (let i = 0; i < a.length; i++) {
+      resultMatrix[i] = new Array(b[0].length).fill(0);
+    }
+
+    // Melakukan operasi perkalian matriks
+    for (let i = 0; i < a.length; i++) {
+      for (let j = 0; j < b[0].length; j++) {
+        for (let k = 0; k < b.length; k++) {
+          resultMatrix[i][j] += a[i][k] * b[k][j];
+        }
+      }
+    }
+    setResults(resultMatrix);
   };
 
   return (
-    <main className="min-w-full min-h-screen flex justify-center items-center">
-      {toggle1 ? settingInput1 : ""}
-      <form onSubmit={handleSubmit1} className="flex-col mx-2">
-        <AiFillSetting onClick={toggleButton1} className="mb-2 text-2xl text-slate-800"/>
-        {arrInput1}
-        <button type="submit" className="bg-slate-300 rounded-xl px-3 py-0.5 mt-2">submit</button>
-      </form>
-      <div className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-700 rounded-full flex justify-center items-center text-white mx-2">
-        +
-      </div>
-      {toggle2 ? settingInput2 : ""}
-      <form onSubmit={handleSubmit2} className="flex-col">
-        <AiFillSetting onClick={toggleButton2} className="mb-2 text-2xl text-slate-800"/>
-        {arrInput2}
-        <button type="submit" className="bg-slate-300 rounded-xl px-3 py-0.5 mt-2">submit 2</button>
-      </form>
-      <button
-        onClick={() => {
-          reductionFuch(matrixA, matrixB);
-        }}
-        className="px-3 pb-2 text-4xl bg-slate-600 border border-slate-700 rounded-full flex justify-center items-center text-white mx-2"
-      >
-        =
-      </button>
-      <div className="flex flex-col">
-        {results.map((m, n) => {
-          return (
-            <div key={n} className="flex">
-              {m.map((x, y) => {
-                return (
-                  <div
-                    key={y}
-                    className=" w-[100px] h-[100px] flex justify-center items-center border border-red-600 rounded-xl text-2xl font-bold text-red-600"
-                  >
-                    {x}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
+    <main className="flex flex-col justify-center items-center min-w-full min-h-screen">
+      <TitleMatrix title="MATRIX MULTIPLICATION"/>
+      <div className="w-auto h-auto flex justify-center items-center">
+        <NavLink />
+        {toggle1 ? settingInput1 : ""}
+        <form onSubmit={handleSubmit1} className="flex-col">
+          <AiFillSetting
+            onClick={toggleButton1}
+            className="mb-2 text-2xl text-slate-800"
+          />
+          {arrInput1}
+          <button
+            type="submit"
+            className="bg-slate-300 active:bg-green-400 rounded-xl px-3 py-0.5 mt-2"
+          >
+            submit
+          </button>
+        </form>
+        <div className="px-3 pb-2 text-5xl font-bold flex justify-center items-center mx-3">
+          +
+        </div>
+        {toggle2 ? settingInput2 : ""}
+        <form onSubmit={handleSubmit2} className="flex-col">
+          <AiFillSetting
+            onClick={toggleButton2}
+            className="mb-2 text-2xl text-slate-800"
+          />
+          {arrInput2}
+          <button
+            type="submit"
+            className="bg-slate-300 active:bg-green-400 rounded-xl px-3 py-0.5 mt-2"
+          >
+            submit
+          </button>
+        </form>
+        <button
+          onClick={() => {
+            multiplicationFuch(matrixA, matrixB);
+          }}
+          className="px-5 pb-2 text-4xl bg-slate-600 border border-slate-800 rounded-full flex justify-center items-center text-white mx-3 active:bg-slate-300"
+        >
+          =
+        </button>
+        <div className="flex flex-col items-start">
+          {results.map((m, n) => {
+            return (
+              <div key={n} className="flex">
+                {m.map((x, y) => {
+                  return (
+                    <div
+                      key={y}
+                      className=" w-[100px] h-[100px] flex justify-center items-center border border-red-600 rounded-xl text-2xl font-bold text-red-600"
+                    >
+                      {x}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </main>
   );
 };
 
-export default MatrixReduction;
+export default MatrixMultiplication;
