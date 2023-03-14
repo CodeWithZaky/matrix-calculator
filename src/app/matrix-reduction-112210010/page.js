@@ -222,7 +222,7 @@ const MatrixReduction = () => {
           </button>
         </form>
         <div className="px-3 pb-2 text-5xl font-bold flex justify-center items-center mx-3">
-          +
+          -
         </div>
         {toggle2 ? settingInput2 : ""}
         <form onSubmit={handleSubmit2} className="flex-col">
