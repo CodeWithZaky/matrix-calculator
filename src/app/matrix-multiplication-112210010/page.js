@@ -1,13 +1,23 @@
 "use client";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import NavLink from "components/NavLink";
 import TitleMatrix from "components/TitleMatrix";
+import ResultsMap from "components/ResultsMap";
 
 import { AiFillSetting } from "react-icons/ai";
 const MatrixMultiplication = () => {
-  const [matrixA, setMatrixA] = useState([[0,0],[0,0]]);
-  const [matrixB, setMatrixB] = useState([[0,0],[0,0]]);
-  const [results, setResults] = useState([[0,0],[0,0]]);
+  const [matrixA, setMatrixA] = useState([
+    [0, 0],
+    [0, 0],
+  ]);
+  const [matrixB, setMatrixB] = useState([
+    [0, 0],
+    [0, 0],
+  ]);
+  const [results, setResults] = useState([
+    [0, 0],
+    [0, 0],
+  ]);
   const [rowInput1, setRowInput1] = useState([2]);
   const [colInput1, setColInput1] = useState([2]);
   const [rowInput2, setRowInput2] = useState([2]);
@@ -19,9 +29,6 @@ const MatrixMultiplication = () => {
   //////////////////////////////MATRIX A////////////////////////////////////
   //////////////////////////////MATRIX A////////////////////////////////////
   //SETTING INPUT
-  const toggleButton1 = () => {
-    setToggle1(!toggle1);
-  };
   const handleSubmitOrdo1 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
@@ -40,7 +47,10 @@ const MatrixMultiplication = () => {
   };
 
   const settingInput1 = (
-    <form onSubmit={handleSubmitOrdo1} className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl">
+    <form
+      onSubmit={handleSubmitOrdo1}
+      className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl"
+    >
       <div>row</div>
       <input
         type="number"
@@ -53,7 +63,9 @@ const MatrixMultiplication = () => {
         defaultValue={colInput1}
         className="border border-slate-700 rounded-xl text-center mb-2"
       />
-      <button type="submit" className="mt-2 bg-green-500 rounded-sm">save</button>
+      <button type="submit" className="mt-2 bg-green-500 rounded-sm">
+        save
+      </button>
     </form>
   );
   const row1 = rowInput1;
@@ -100,9 +112,6 @@ const MatrixMultiplication = () => {
   ///////////////////////////////MATRIX B/////////////////////////////////////
   ///////////////////////////////MATRIX B/////////////////////////////////////
   //SETTING INPUT
-  const toggleButton2 = () => {
-    setToggle2(!toggle2);
-  };
   const handleSubmitOrdo2 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
@@ -121,7 +130,10 @@ const MatrixMultiplication = () => {
   };
 
   const settingInput2 = (
-    <form onSubmit={handleSubmitOrdo2} className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl">
+    <form
+      onSubmit={handleSubmitOrdo2}
+      className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl"
+    >
       <div>row</div>
       <input
         type="number"
@@ -134,7 +146,9 @@ const MatrixMultiplication = () => {
         defaultValue={colInput2}
         className="border border-slate-700 rounded-xl text-center mb-2"
       />
-      <button type="submit" className="mt-2 bg-green-500 rounded-sm">save</button>
+      <button type="submit" className="mt-2 bg-green-500 rounded-sm">
+        save
+      </button>
     </form>
   );
   //
@@ -178,9 +192,9 @@ const MatrixMultiplication = () => {
       arr2dInputResults2.push(inputResult2.splice(0, col2));
     setMatrixB(arr2dInputResults2);
   };
-    ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
-    ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
-    ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
+  ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
+  ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
+  ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
   const multiplicationFuch = (a, b) => {
     if (a[0].length !== b.length) {
       return alert("Dimensi matriks tidak sesuai");
@@ -217,13 +231,15 @@ const MatrixMultiplication = () => {
 
   return (
     <main className="flex flex-col justify-center items-center min-w-full min-h-screen">
-      <TitleMatrix title="MATRIX MULTIPLICATION"/>
+      <TitleMatrix title="MATRIX MULTIPLICATION" />
       <div className="w-auto h-auto flex justify-center items-center">
         <NavLink />
         {toggle1 ? settingInput1 : ""}
         <form onSubmit={handleSubmit1} className="flex-col">
           <AiFillSetting
-            onClick={toggleButton1}
+            onClick={() => {
+              setToggle1(!toggle1);
+            }}
             className="mb-2 text-2xl text-slate-800"
           />
           {arrInput1}
@@ -240,7 +256,9 @@ const MatrixMultiplication = () => {
         {toggle2 ? settingInput2 : ""}
         <form onSubmit={handleSubmit2} className="flex-col">
           <AiFillSetting
-            onClick={toggleButton2}
+            onClick={() => {
+              setToggle2(!toggle2);
+            }}
             className="mb-2 text-2xl text-slate-800"
           />
           {arrInput2}
@@ -259,24 +277,7 @@ const MatrixMultiplication = () => {
         >
           =
         </button>
-        <div className="flex flex-col items-start">
-          {results.map((m, n) => {
-            return (
-              <div key={n} className="flex">
-                {m.map((x, y) => {
-                  return (
-                    <div
-                      key={y}
-                      className=" w-[100px] h-[100px] flex justify-center items-center border border-red-600 rounded-xl text-2xl font-bold text-red-600"
-                    >
-                      {x}
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
-        </div>
+        <ResultsMap results={results} />
       </div>
     </main>
   );

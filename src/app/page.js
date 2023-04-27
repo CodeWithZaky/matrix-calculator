@@ -4,7 +4,7 @@ export default function Home() {
 const NavLink = [
   {
     href : "/matrix-addition-112210010",
-    h1 : "matrix additions",
+    h1 : "matrix addition",
     p : "+"
   },
   {

@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import NavLink from "components/NavLink";
-
 import { AiFillSetting } from "react-icons/ai";
 import TitleMatrix from "components/TitleMatrix";
+import ResultsMap from "components/ResultsMap";
+
 const MatrixAddition = () => {
   const [matrixA, setMatrixA] = useState([
     [0, 0],
@@ -27,9 +28,6 @@ const MatrixAddition = () => {
   //////////////////////////////MATRIX A////////////////////////////////////
   //////////////////////////////MATRIX A////////////////////////////////////
   //SETTING INPUT
-  const toggleButton1 = () => {
-    setToggle1(!toggle1);
-  };
   const handleSubmitOrdo1 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
@@ -113,9 +111,6 @@ const MatrixAddition = () => {
   ///////////////////////////////MATRIX B/////////////////////////////////////
   ///////////////////////////////MATRIX B/////////////////////////////////////
   //SETTING INPUT
-  const toggleButton2 = () => {
-    setToggle2(!toggle2);
-  };
   const handleSubmitOrdo2 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
@@ -155,7 +150,6 @@ const MatrixAddition = () => {
       </button>
     </form>
   );
-  //
   const row2 = rowInput2;
   const col2 = colInput2;
   const arrRow2 = [];
@@ -196,9 +190,9 @@ const MatrixAddition = () => {
       arr2dInputResults2.push(inputResult2.splice(0, col2));
     setMatrixB(arr2dInputResults2);
   };
-  //////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
-  //////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
-  //////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
+  ////////////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
+  ////////////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
+  ////////////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
   const additionFuch = (a, b) => {
     // Cek apakah ukuran kedua matriks sama
     if (a.length !== b.length) {
@@ -222,13 +216,15 @@ const MatrixAddition = () => {
 
   return (
     <main className="flex flex-col justify-center items-center min-w-full min-h-screen">
-      <TitleMatrix title="MATRIX ADDITION"/>
+      <TitleMatrix title="MATRIX ADDITION" />
       <div className="w-auto h-auto flex justify-center items-center">
         <NavLink />
         {toggle1 ? settingInput1 : ""}
         <form onSubmit={handleSubmit1} className="flex-col">
           <AiFillSetting
-            onClick={toggleButton1}
+            onClick={() => {
+              setToggle1(!toggle1);
+            }}
             className="mb-2 text-2xl text-slate-800"
           />
           {arrInput1}
@@ -245,7 +241,9 @@ const MatrixAddition = () => {
         {toggle2 ? settingInput2 : ""}
         <form onSubmit={handleSubmit2} className="flex-col">
           <AiFillSetting
-            onClick={toggleButton2}
+            onClick={() => {
+              setToggle2(!toggle2);
+            }}
             className="mb-2 text-2xl text-slate-800"
           />
           {arrInput2}
@@ -264,24 +262,7 @@ const MatrixAddition = () => {
         >
           =
         </button>
-        <div className="flex flex-col items-start">
-          {results.map((m, n) => {
-            return (
-              <div key={n} className="flex">
-                {m.map((x, y) => {
-                  return (
-                    <div
-                      key={y}
-                      className=" w-[100px] h-[100px] flex justify-center items-center border border-red-600 rounded-xl text-2xl font-bold text-red-600"
-                    >
-                      {x}
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
-        </div>
+        <ResultsMap results={results} />
       </div>
     </main>
   );
