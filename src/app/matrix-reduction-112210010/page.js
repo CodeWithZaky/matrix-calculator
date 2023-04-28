@@ -25,9 +25,6 @@ const MatrixReduction = () => {
   const [colInput1, setColInput1] = useState([3]);
   const [rowInput2, setRowInput2] = useState([3]);
   const [colInput2, setColInput2] = useState([3]);
-  const [toggle1, setToggle1] = useState(false);
-  const [toggle2, setToggle2] = useState(false);
-
   //////////////////////////////MATRIX A////////////////////////////////////
   //////////////////////////////MATRIX A////////////////////////////////////
   //////////////////////////////MATRIX A////////////////////////////////////
@@ -59,6 +56,7 @@ const MatrixReduction = () => {
           <div>row</div>
           <input
             type="number"
+            min={0}
             defaultValue={rowInput1}
             className="border w-[60px] border-slate-700 rounded text-center"
           />
@@ -67,6 +65,7 @@ const MatrixReduction = () => {
           <div>colomn</div>
           <input
             type="number"
+            min={0}
             defaultValue={colInput1}
             className="border w-[60px] border-slate-700 rounded text-center"
           />
@@ -148,6 +147,7 @@ const MatrixReduction = () => {
           <div>row</div>
           <input
             type="number"
+            min={0}
             defaultValue={rowInput2}
             className="border w-[60px] border-slate-700 rounded text-center"
           />
@@ -156,6 +156,7 @@ const MatrixReduction = () => {
           <div>colomn</div>
           <input
             type="number"
+            min={0}
             defaultValue={colInput2}
             className="border w-[60px] border-slate-700 rounded text-center"
           />

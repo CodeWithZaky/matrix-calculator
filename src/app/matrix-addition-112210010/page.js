@@ -25,8 +25,6 @@ const MatrixAddition = () => {
   const [colInput1, setColInput1] = useState([3]);
   const [rowInput2, setRowInput2] = useState([3]);
   const [colInput2, setColInput2] = useState([3]);
-  const [toggle1, setToggle1] = useState(false);
-  const [toggle2, setToggle2] = useState(false);
   //////////////////////////////MATRIX A////////////////////////////////////
   //////////////////////////////MATRIX A////////////////////////////////////
   //////////////////////////////MATRIX A////////////////////////////////////
@@ -58,6 +56,7 @@ const MatrixAddition = () => {
           <div>row</div>
           <input
             type="number"
+            min={0}
             defaultValue={rowInput1}
             className="border w-[60px] border-slate-700 rounded text-center"
           />
@@ -66,6 +65,7 @@ const MatrixAddition = () => {
           <div>colomn</div>
           <input
             type="number"
+            min={0}
             defaultValue={colInput1}
             className="border w-[60px] border-slate-700 rounded text-center"
           />
@@ -147,6 +147,7 @@ const MatrixAddition = () => {
           <div>row</div>
           <input
             type="number"
+            min={0}
             defaultValue={rowInput2}
             className="border w-[60px] border-slate-700 rounded text-center"
           />
@@ -155,6 +156,7 @@ const MatrixAddition = () => {
           <div>colomn</div>
           <input
             type="number"
+            min={0}
             defaultValue={colInput2}
             className="border w-[60px] border-slate-700 rounded text-center"
           />
@@ -213,6 +215,9 @@ const MatrixAddition = () => {
     if (a.length !== b.length) {
       return alert("pada operasi penambahan dan pengurangan ordo harus sama");
     }
+    if (a.length !== b[0].length) {
+      return alert("pada operasi penambahan dan pengurangan ordo harus sama");
+    }
     // Buat matriks kosong untuk menyimpan hasil penjumlahan
     const result = [];
     // Lakukan penjumlahan elemen per elemen dari kedua matriks
@@ -231,7 +236,7 @@ const MatrixAddition = () => {
 
   return (
     <main className="flex flex-col justify-between items-center min-w-screen min-h-screen gap-3 ">
-      <HeaderPage title="MATRIX ADDITION"/>
+      <HeaderPage title="MATRIX ADDITION" />
       <section className="container flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col sm:flex-row gap-3 mb-2">
@@ -284,7 +289,7 @@ const MatrixAddition = () => {
           </div>
         </div>
       </section>
-      <FooterPage/>
+      <FooterPage />
     </main>
   );
 };
