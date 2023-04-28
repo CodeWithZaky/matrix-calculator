@@ -272,7 +272,7 @@ const MatrixReduction = () => {
             <div className="w-full px-5 bg-blue-900/90 text-center">
               <button
                 onClick={() => {
-                  additionFuch(matrixA, matrixB);
+                  reductionFuch(matrixA, matrixB);
                 }}
                 className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-500"
               >
