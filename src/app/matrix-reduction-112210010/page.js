@@ -216,6 +216,9 @@ const MatrixReduction = () => {
     if (a.length !== b.length) {
       return alert("pada operasi penambahan dan pengurangan ordo harus sama");
     }
+    if (a.length !== b[0].length) {
+      return alert("pada operasi penambahan dan pengurangan ordo harus sama");
+    }
     // Buat matriks kosong untuk menyimpan hasil penjumlahan
     const result = [];
     // Lakukan penjumlahan elemen per elemen dari kedua matriks
