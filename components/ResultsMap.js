@@ -10,7 +10,7 @@ const ResultsAdd = (props) => {
             return (
               <div
                 key={y}
-                className=" w-[100px] h-[100px] flex justify-center items-center border border-red-600 rounded-xl text-2xl font-bold text-red-600"
+                className=" w-[50px] flex justify-center items-center border border-black rounded-lg text-xl font-semibold bg-white"
               >
                 {x}
               </div>

@@ -1,27 +1,30 @@
 "use client";
 import React, { useState } from "react";
-import NavLink from "components/NavLink";
-import TitleMatrix from "components/TitleMatrix";
 import ResultsMap from "components/ResultsMap";
+import HeaderPage from "components/HeaderPage";
+import DefinitionResult from "components/DefinitionResult";
+import FooterPage from "components/FooterPage";
 
-import { AiFillSetting } from "react-icons/ai";
 const MatrixMultiplication = () => {
   const [matrixA, setMatrixA] = useState([
-    [0, 0],
-    [0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
   ]);
   const [matrixB, setMatrixB] = useState([
-    [0, 0],
-    [0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
   ]);
   const [results, setResults] = useState([
-    [0, 0],
-    [0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
   ]);
-  const [rowInput1, setRowInput1] = useState([2]);
-  const [colInput1, setColInput1] = useState([2]);
-  const [rowInput2, setRowInput2] = useState([2]);
-  const [colInput2, setColInput2] = useState([2]);
+  const [rowInput1, setRowInput1] = useState([3]);
+  const [colInput1, setColInput1] = useState([3]);
+  const [rowInput2, setRowInput2] = useState([3]);
+  const [colInput2, setColInput2] = useState([3]);
   const [toggle1, setToggle1] = useState(false);
   const [toggle2, setToggle2] = useState(false);
 
@@ -49,23 +52,29 @@ const MatrixMultiplication = () => {
   const settingInput1 = (
     <form
       onSubmit={handleSubmitOrdo1}
-      className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl"
+      className="flex justify-start gap-4 px-2 py-1"
     >
-      <div>row</div>
-      <input
-        type="number"
-        defaultValue={rowInput1}
-        className="border border-slate-700 rounded-xl text-center mb-2"
-      />
-      <div>colomn</div>
-      <input
-        type="number"
-        defaultValue={colInput1}
-        className="border border-slate-700 rounded-xl text-center mb-2"
-      />
-      <button type="submit" className="mt-2 bg-green-500 rounded-sm">
-        save
-      </button>
+      <div className="flex border border-slate-400 rounded gap-3">
+        <section className="flex flex-col ml-0.5 my-0.5">
+          <div>row</div>
+          <input
+            type="number"
+            defaultValue={rowInput1}
+            className="border w-[60px] border-slate-700 rounded text-center"
+          />
+        </section>
+        <section className="flex flex-col my-0.5">
+          <div>colomn</div>
+          <input
+            type="number"
+            defaultValue={colInput1}
+            className="border w-[60px] border-slate-700 rounded text-center"
+          />
+        </section>
+        <button type="submit" className="px-2 text-white bg-slate-700">
+          save
+        </button>
+      </div>
     </form>
   );
   const row1 = rowInput1;
@@ -78,13 +87,13 @@ const MatrixMultiplication = () => {
       <input
         key={i}
         defaultValue={0}
-        className="border border-black w-[100px] h-[100px] rounded-xl text-center text-2xl font-bold"
+        className="border border-black w-[50px] rounded-lg text-center text-xl font-semibold"
       />
     );
   }
   for (let i = 0; i < row1; i++) {
     arrInput1.push(
-      <div key={i} className="flex">
+      <div key={i} className="flex px-1">
         {arrRow1}
       </div>
     );
@@ -132,23 +141,29 @@ const MatrixMultiplication = () => {
   const settingInput2 = (
     <form
       onSubmit={handleSubmitOrdo2}
-      className="flex flex-col border border-slate-700 px-2 py-3 rounded-xl"
+      className="flex justify-start gap-4 px-2 py-1"
     >
-      <div>row</div>
-      <input
-        type="number"
-        defaultValue={rowInput2}
-        className="border border-slate-700 rounded-xl text-center mb-2"
-      />
-      <div>colomn</div>
-      <input
-        type="number"
-        defaultValue={colInput2}
-        className="border border-slate-700 rounded-xl text-center mb-2"
-      />
-      <button type="submit" className="mt-2 bg-green-500 rounded-sm">
-        save
-      </button>
+      <div className="flex border border-slate-400 rounded gap-3">
+        <section className="flex flex-col ml-0.5 my-0.5">
+          <div>row</div>
+          <input
+            type="number"
+            defaultValue={rowInput2}
+            className="border w-[60px] border-slate-700 rounded text-center"
+          />
+        </section>
+        <section className="flex flex-col my-0.5">
+          <div>colomn</div>
+          <input
+            type="number"
+            defaultValue={colInput2}
+            className="border w-[60px] border-slate-700 rounded text-center"
+          />
+        </section>
+        <button type="submit" className="px-2 text-white bg-slate-700">
+          save
+        </button>
+      </div>
     </form>
   );
   //
@@ -162,13 +177,13 @@ const MatrixMultiplication = () => {
       <input
         defaultValue={0}
         key={i}
-        className="border border-black w-[100px] h-[100px] rounded-xl text-center text-2xl font-bold"
+        className="border border-black w-[50px] rounded-lg text-center text-xl font-semibold"
       />
     );
   }
   for (let i = 0; i < row2; i++) {
     arrInput2.push(
-      <div key={i} className="flex">
+      <div key={i} className="flex px-1">
         {arrRow2}
       </div>
     );
@@ -230,55 +245,61 @@ const MatrixMultiplication = () => {
   };
 
   return (
-    <main className="flex flex-col justify-center items-center min-w-full min-h-screen">
-      <TitleMatrix title="MATRIX MULTIPLICATION" />
-      <div className="w-auto h-auto flex justify-center items-center">
-        <NavLink />
-        {toggle1 ? settingInput1 : ""}
-        <form onSubmit={handleSubmit1} className="flex-col">
-          <AiFillSetting
-            onClick={() => {
-              setToggle1(!toggle1);
-            }}
-            className="mb-2 text-2xl text-slate-800"
-          />
-          {arrInput1}
-          <button
-            type="submit"
-            className="bg-slate-300 active:bg-green-400 rounded-xl px-3 py-0.5 mt-2"
-          >
-            submit
-          </button>
-        </form>
-        <div className="px-3 pb-2 text-5xl font-bold flex justify-center items-center mx-3">
-          x
+    <main className="flex flex-col justify-between items-center min-w-screen min-h-screen gap-3 ">
+      <HeaderPage title="MATRIX MULTIPLICATION" />
+      <section className="container flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 mb-2">
+            <section className="border border-blue-800 bg-slate-200 rounded">
+              <p className="text-3xl bg-blue-900 text-white text-center">
+                MATRIX A
+              </p>
+              <div className="mb-4">{settingInput1}</div>
+              <form onSubmit={handleSubmit1} className="flex-col">
+                {arrInput1}
+                <button
+                  type="submit"
+                  className="w-full bg-slate-600 text-white active:bg-slate-400 px-3 py-0.5 mt-4"
+                >
+                  submit
+                </button>
+              </form>
+            </section>
+            <section className="border border-blue-800 bg-slate-200 rounded">
+              <p className="text-3xl bg-blue-900 text-white text-center">
+                MATRIX B
+              </p>
+              <div className="mb-4">{settingInput2}</div>
+              <form onSubmit={handleSubmit2} className="flex-col">
+                {arrInput2}
+                <button
+                  type="submit"
+                  className="w-full bg-slate-600 text-white active:bg-slate-400  px-3 py-0.5 mt-4"
+                >
+                  submit
+                </button>
+              </form>
+            </section>
+          </div>
+          <div className="w-full flex flex-col justify-center items-center bg-slate-200 gap-3 border border-blue-800">
+            <div className="w-full px-5 bg-blue-900/90 text-center">
+              <button
+                onClick={() => {
+                  multiplicationFuch(matrixA, matrixB);
+                }}
+                className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-500"
+              >
+                RESULT
+              </button>
+            </div>
+            <div className="flex justify-center items-center gap-5 mb-3">
+              <DefinitionResult title="A x B =" />
+              <ResultsMap results={results} />
+            </div>
+          </div>
         </div>
-        {toggle2 ? settingInput2 : ""}
-        <form onSubmit={handleSubmit2} className="flex-col">
-          <AiFillSetting
-            onClick={() => {
-              setToggle2(!toggle2);
-            }}
-            className="mb-2 text-2xl text-slate-800"
-          />
-          {arrInput2}
-          <button
-            type="submit"
-            className="bg-slate-300 active:bg-green-400 rounded-xl px-3 py-0.5 mt-2"
-          >
-            submit
-          </button>
-        </form>
-        <button
-          onClick={() => {
-            multiplicationFuch(matrixA, matrixB);
-          }}
-          className="px-5 pb-2 text-4xl bg-slate-600 border border-slate-800 rounded-full flex justify-center items-center text-white mx-3 active:bg-slate-300"
-        >
-          =
-        </button>
-        <ResultsMap results={results} />
-      </div>
+      </section>
+      <FooterPage />
     </main>
   );
 };
