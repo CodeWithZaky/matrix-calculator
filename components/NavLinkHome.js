@@ -9,8 +9,8 @@ const NavLinkHome = () => {
       p: "+",
     },
     {
-      href: "/matrix-reduction-112210010",
-      h1: "matrix reduction",
+      href: "/matrix-subtraction-112210010",
+      h1: "matrix subtraction",
       p: "-",
     },
     {

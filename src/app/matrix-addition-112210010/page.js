@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import ResultsMap from "components/ResultsMap";
-import HeaderPage from "components/HeaderPage";
 import DefinitionResult from "components/DefinitionResult";
+import HeaderPage from "components/HeaderPage";
 import FooterPage from "components/FooterPage";
 
 const MatrixAddition = () => {
@@ -25,10 +25,12 @@ const MatrixAddition = () => {
   const [colInput1, setColInput1] = useState([3]);
   const [rowInput2, setRowInput2] = useState([3]);
   const [colInput2, setColInput2] = useState([3]);
-  //////////////////////////////MATRIX A////////////////////////////////////
-  //////////////////////////////MATRIX A////////////////////////////////////
-  //////////////////////////////MATRIX A////////////////////////////////////
-  //SETTING INPUT
+
+  //------------------------------------------------------------------------//
+  //--------------------------------MATRIX A--------------------------------//
+  //------------------------------------------------------------------------//
+
+  //handle submit value setting ordo form input 1
   const handleSubmitOrdo1 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
@@ -46,6 +48,7 @@ const MatrixAddition = () => {
     setColInput1(e.target[1].value);
   };
 
+  //setting ordo input form 1
   const settingInput1 = (
     <form
       onSubmit={handleSubmitOrdo1}
@@ -76,11 +79,12 @@ const MatrixAddition = () => {
       </div>
     </form>
   );
+
+  //pembuat wadah matrix dari value ordo input 1
   const row1 = rowInput1;
   const col1 = colInput1;
   const arrRow1 = [];
   const arrInput1 = [];
-  //ORDO INPUT
   for (let i = 0; i < col1; i++) {
     arrRow1.push(
       <input
@@ -98,6 +102,7 @@ const MatrixAddition = () => {
     );
   }
 
+  //handle submit value matrix input 1
   const handleSubmit1 = (e) => {
     e.preventDefault();
     const inputResult1 = [];
@@ -116,10 +121,12 @@ const MatrixAddition = () => {
       arr2dInputResults1.push(inputResult1.splice(0, col1));
     setMatrixA(arr2dInputResults1);
   };
-  ///////////////////////////////MATRIX B/////////////////////////////////////
-  ///////////////////////////////MATRIX B/////////////////////////////////////
-  ///////////////////////////////MATRIX B/////////////////////////////////////
-  //SETTING INPUT
+
+  //------------------------------------------------------------------------//
+  //--------------------------------MATRIX B--------------------------------//
+  //------------------------------------------------------------------------//
+
+  //handle submit value setting ordo form input 2
   const handleSubmitOrdo2 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
@@ -137,6 +144,7 @@ const MatrixAddition = () => {
     setColInput2(e.target[1].value);
   };
 
+  //setting ordo input form 2
   const settingInput2 = (
     <form
       onSubmit={handleSubmitOrdo2}
@@ -167,6 +175,7 @@ const MatrixAddition = () => {
       </div>
     </form>
   );
+  //pembuat wadah matrix dari value ordo input 2
   const row2 = rowInput2;
   const col2 = colInput2;
   const arrRow2 = [];
@@ -189,6 +198,7 @@ const MatrixAddition = () => {
     );
   }
 
+  //handle submit value matrix input 2
   const handleSubmit2 = (e) => {
     e.preventDefault();
     const inputResult2 = [];
@@ -207,9 +217,11 @@ const MatrixAddition = () => {
       arr2dInputResults2.push(inputResult2.splice(0, col2));
     setMatrixB(arr2dInputResults2);
   };
-  ////////////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
-  ////////////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
-  ////////////////////////////////ADDITIONAL FUNCTION/////////////////////////////////////////
+
+  //-------------------------------------------------------------------------//
+  //---------------------------ADDITIONAL FUNCTION---------------------------//
+  //-------------------------------------------------------------------------//
+
   const additionFuch = (a, b) => {
     // Cek apakah ukuran kedua matriks sama
     if (a.length !== b.length) {
@@ -239,7 +251,7 @@ const MatrixAddition = () => {
       <HeaderPage title="MATRIX ADDITION" />
       <section className="container flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-col sm:flex-row gap-3 mb-2">
+          <div className="flex w-full flex-col sm:flex-row gap-3 mb-2">
             <section className="border border-blue-800 bg-slate-200 rounded">
               <p className="text-3xl bg-blue-900 text-white text-center">
                 MATRIX A
@@ -277,12 +289,12 @@ const MatrixAddition = () => {
                 onClick={() => {
                   additionFuch(matrixA, matrixB);
                 }}
-                className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-500"
+                className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-400"
               >
                 RESULT
               </button>
             </div>
-            <div className="flex justify-center items-center gap-5 mb-3">
+            <div className="flex justify-center items-center gap-5 mb-3 px-1">
               <DefinitionResult title="A + B =" />
               <ResultsMap results={results} />
             </div>

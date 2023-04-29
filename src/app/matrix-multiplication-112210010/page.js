@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import ResultsMap from "components/ResultsMap";
-import HeaderPage from "components/HeaderPage";
 import DefinitionResult from "components/DefinitionResult";
+import HeaderPage from "components/HeaderPage";
 import FooterPage from "components/FooterPage";
 
 const MatrixMultiplication = () => {
@@ -25,10 +25,12 @@ const MatrixMultiplication = () => {
   const [colInput1, setColInput1] = useState([3]);
   const [rowInput2, setRowInput2] = useState([3]);
   const [colInput2, setColInput2] = useState([3]);
-  //////////////////////////////MATRIX A////////////////////////////////////
-  //////////////////////////////MATRIX A////////////////////////////////////
-  //////////////////////////////MATRIX A////////////////////////////////////
-  //SETTING INPUT
+
+  //------------------------------------------------------------------------//
+  //--------------------------------MATRIX A--------------------------------//
+  //------------------------------------------------------------------------//
+
+  //handle submit value setting ordo form input 1
   const handleSubmitOrdo1 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
@@ -46,6 +48,7 @@ const MatrixMultiplication = () => {
     setColInput1(e.target[1].value);
   };
 
+  //setting ordo input form 1
   const settingInput1 = (
     <form
       onSubmit={handleSubmitOrdo1}
@@ -76,11 +79,13 @@ const MatrixMultiplication = () => {
       </div>
     </form>
   );
+
+  //pembuat wadah matrix dari value ordo input 1
   const row1 = rowInput1;
   const col1 = colInput1;
   const arrRow1 = [];
   const arrInput1 = [];
-  //ORDO INPUT
+
   for (let i = 0; i < col1; i++) {
     arrRow1.push(
       <input
@@ -98,6 +103,7 @@ const MatrixMultiplication = () => {
     );
   }
 
+  //handle submit value matrix input 1
   const handleSubmit1 = (e) => {
     e.preventDefault();
     const inputResult1 = [];
@@ -116,10 +122,12 @@ const MatrixMultiplication = () => {
       arr2dInputResults1.push(inputResult1.splice(0, col1));
     setMatrixA(arr2dInputResults1);
   };
-  ///////////////////////////////MATRIX B/////////////////////////////////////
-  ///////////////////////////////MATRIX B/////////////////////////////////////
-  ///////////////////////////////MATRIX B/////////////////////////////////////
-  //SETTING INPUT
+
+  //------------------------------------------------------------------------//
+  //--------------------------------MATRIX B--------------------------------//
+  //------------------------------------------------------------------------//
+
+  //handle submit value setting ordo form input 2
   const handleSubmitOrdo2 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
@@ -137,6 +145,7 @@ const MatrixMultiplication = () => {
     setColInput2(e.target[1].value);
   };
 
+  //setting ordo input form 2
   const settingInput2 = (
     <form
       onSubmit={handleSubmitOrdo2}
@@ -167,7 +176,8 @@ const MatrixMultiplication = () => {
       </div>
     </form>
   );
-  //
+
+  //pembuat wadah matrix dari value ordo input 2
   const row2 = rowInput2;
   const col2 = colInput2;
   const arrRow2 = [];
@@ -190,6 +200,7 @@ const MatrixMultiplication = () => {
     );
   }
 
+  //handle submit value matrix input 2
   const handleSubmit2 = (e) => {
     e.preventDefault();
     const inputResult2 = [];
@@ -208,9 +219,10 @@ const MatrixMultiplication = () => {
       arr2dInputResults2.push(inputResult2.splice(0, col2));
     setMatrixB(arr2dInputResults2);
   };
-  ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
-  ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
-  ///////////////////////////////MULTIPLICATION FUNCTION/////////////////////////////////////
+
+  //-----------------------------------------------------------------------------//
+  //---------------------------MULTIPLICATION FUNCTION---------------------------//
+  //-----------------------------------------------------------------------------//
   const multiplicationFuch = (a, b) => {
     if (a[0].length !== b.length) {
       return alert("Dimensi matriks tidak sesuai");
@@ -246,11 +258,11 @@ const MatrixMultiplication = () => {
   };
 
   return (
-    <main className="flex flex-col justify-between items-center min-w-screen min-h-screen gap-3 ">
+    <main className="flex flex-col justify-between items-center min-w-screen min-h-screen gap-3">
       <HeaderPage title="MATRIX MULTIPLICATION" />
       <section className="container flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-col sm:flex-row gap-3 mb-2">
+          <div className="flex w-full flex-col sm:flex-row gap-3 mb-2">
             <section className="border border-blue-800 bg-slate-200 rounded">
               <p className="text-3xl bg-blue-900 text-white text-center">
                 MATRIX A
@@ -288,12 +300,12 @@ const MatrixMultiplication = () => {
                 onClick={() => {
                   multiplicationFuch(matrixA, matrixB);
                 }}
-                className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-500"
+                className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-400"
               >
                 RESULT
               </button>
             </div>
-            <div className="flex justify-center items-center gap-5 mb-3">
+            <div className="flex justify-center items-center gap-5 mb-3 px-1">
               <DefinitionResult title="A x B =" />
               <ResultsMap results={results} />
             </div>
