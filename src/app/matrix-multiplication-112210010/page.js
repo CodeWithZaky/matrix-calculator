@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import ResultsMap from "components/ResultsMap";
-import DefinitionResult from "components/DefinitionResult";
-import HeaderPage from "components/HeaderPage";
-import FooterPage from "components/FooterPage";
+import OperationTitleResult from "components/OperationTitleResult";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 const MatrixMultiplication = () => {
   const [matrixA, setMatrixA] = useState([
@@ -259,7 +259,7 @@ const MatrixMultiplication = () => {
 
   return (
     <main className="flex flex-col justify-between items-center min-w-screen min-h-screen gap-3">
-      <HeaderPage title="MATRIX MULTIPLICATION" />
+      <Header title="MATRIX MULTIPLICATION" />
       <section className="container flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
           <div className="flex w-full flex-col sm:flex-row gap-3 mb-2">
@@ -306,13 +306,13 @@ const MatrixMultiplication = () => {
               </button>
             </div>
             <div className="flex justify-center items-center gap-5 mb-3 px-1">
-              <DefinitionResult title="A x B =" />
+              <OperationTitleResult title="A x B =" />
               <ResultsMap results={results} />
             </div>
           </div>
         </div>
       </section>
-      <FooterPage />
+      <Footer />
     </main>
   );
 };

@@ -1,4 +1,4 @@
-import NavLinkHome from "components/NavLinkHome";
+import NavLink from "components/home/NavLink";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
         AHMAD ZAKY UBAIDILLAH
       </h1>
       <h1 className="text-center text-xl sm:text-3xl">112210010</h1>
-      <NavLinkHome />
+      <NavLink />
     </main>
   );
 }
