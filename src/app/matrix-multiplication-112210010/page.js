@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import ResultsMap from "components/ResultsMap";
 import OperationTitleResult from "components/OperationTitleResult";
 import Header from "components/Header";
