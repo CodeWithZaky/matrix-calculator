@@ -19,7 +19,7 @@ const NavLink = () => {
             ? "text-slate-800"
             : "text-blue-900"
         }`}
-        href={"matrix-addition-112210010"}
+        href="/matrix-addition-112210010"
       >
         Matrix Addition
       </Link>
@@ -29,7 +29,7 @@ const NavLink = () => {
             ? "text-slate-800"
             : "text-blue-900"
         }`}
-        href={"matrix-subtraction-112210010"}
+        href="/matrix-subtraction-112210010"
       >
         Matrix Subtraction
       </Link>
@@ -39,7 +39,7 @@ const NavLink = () => {
             ? "text-slate-800"
             : "text-blue-900"
         }`}
-        href={"matrix-multiplication-112210010"}
+        href="/matrix-multiplication-112210010"
       >
         Matrix Multiplication
       </Link>
