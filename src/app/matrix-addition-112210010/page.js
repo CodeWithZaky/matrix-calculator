@@ -227,7 +227,7 @@ const MatrixAddition = () => {
     if (a.length !== b.length) {
       return alert("pada operasi penambahan dan pengurangan ordo harus sama");
     }
-    if (a.length !== b[0].length) {
+    if (a[0].length !== b[0].length) {
       return alert("pada operasi penambahan dan pengurangan ordo harus sama");
     }
     // Buat matriks kosong untuk menyimpan hasil penjumlahan
