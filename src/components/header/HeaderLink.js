@@ -9,13 +9,13 @@ const HeaderLink = () => {
   return (
     <nav className="flex flex-col items-start w-1/3 gap-1 italic">
       <Link
-        className="block px-1 italic font-semibold text-center underline rounded-lg sm:hidden text-slate-200"
+        className="block px-1 italic tracking-wide text-center underline rounded-lg sm:hidden text-slate-200"
         href={"/"}
       >
         Home
       </Link>
       <Link
-        className={`px-1 rounded-lg  font-semibold underline whitespace-nowrap ${
+        className={`px-1 rounded-lg tracking-wide underline whitespace-nowrap ${
           pathname == "/matrix-addition"
             ? "text-blue-400/90 hover:text-blue-400/95"
             : "text-slate-200 hover:text-slate-200/90"
@@ -25,7 +25,7 @@ const HeaderLink = () => {
         Matrix Addition
       </Link>
       <Link
-        className={`px-1 rounded-lg  font-semibold underline whitespace-nowrap ${
+        className={`px-1 rounded-lg tracking-wide underline whitespace-nowrap ${
           pathname == "/matrix-subtraction"
             ? "text-blue-400/90 hover:text-blue-400/95"
             : "text-slate-200 hover:text-slate-200/90"
@@ -35,7 +35,7 @@ const HeaderLink = () => {
         Matrix Subtraction
       </Link>
       <Link
-        className={`px-1 rounded-lg font-semibold underline whitespace-nowrap ${
+        className={`px-1 rounded-lg tracking-wide underline whitespace-nowrap ${
           pathname == "/matrix-multiplication"
             ? "text-blue-400/90 hover:text-blue-400/95"
             : "text-slate-200 hover:text-slate-200/90"
