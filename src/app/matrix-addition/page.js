@@ -1,7 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MainPage from "@/src/components/main/MainPage";
 import useAddition from "@/src/hooks/useAddition";
+import SettingInput from "@/src/features/SettingInput";
+import useOrdoMaker from "@/src/hooks/useOrdoMaker";
 
 const MatrixAddition = () => {
   const [matrixA, setMatrixA] = useState([
@@ -44,34 +46,11 @@ const MatrixAddition = () => {
 
   //setting ordo input form 1
   const settingInput1 = (
-    <form
-      onSubmit={handleSubmitOrdo1}
-      className="flex justify-start gap-4 px-2 py-1"
-    >
-      <div className="flex border border-slate-400 rounded gap-3">
-        <section className="flex flex-col ml-0.5 my-0.5">
-          <div>row</div>
-          <input
-            type="number"
-            min={0}
-            defaultValue={rowInput1}
-            className="border w-[60px] border-slate-700 rounded text-center"
-          />
-        </section>
-        <section className="flex flex-col my-0.5">
-          <div>colomn</div>
-          <input
-            type="number"
-            min={0}
-            defaultValue={colInput1}
-            className="border w-[60px] border-slate-700 rounded text-center"
-          />
-        </section>
-        <button type="submit" className="px-2 text-white bg-slate-700">
-          save
-        </button>
-      </div>
-    </form>
+    <SettingInput
+      handleSubmitOrdo={handleSubmitOrdo1}
+      rowInput={rowInput1}
+      colInput={colInput1}
+    />
   );
 
   //pembuat wadah matrix dari value ordo input 1
@@ -140,34 +119,11 @@ const MatrixAddition = () => {
 
   //setting ordo input form 2
   const settingInput2 = (
-    <form
-      onSubmit={handleSubmitOrdo2}
-      className="flex justify-start gap-4 px-2 py-1"
-    >
-      <div className="flex border border-slate-400 rounded gap-3">
-        <section className="flex flex-col ml-0.5 my-0.5">
-          <div>row</div>
-          <input
-            type="number"
-            min={0}
-            defaultValue={rowInput2}
-            className="border w-[60px] border-slate-700 rounded text-center"
-          />
-        </section>
-        <section className="flex flex-col my-0.5">
-          <div>colomn</div>
-          <input
-            type="number"
-            min={0}
-            defaultValue={colInput2}
-            className="border w-[60px] border-slate-700 rounded text-center"
-          />
-        </section>
-        <button type="submit" className="px-2 text-white bg-slate-700">
-          save
-        </button>
-      </div>
-    </form>
+    <SettingInput
+      handleSubmitOrdo={handleSubmitOrdo2}
+      rowInput={rowInput2}
+      colInput={colInput2}
+    />
   );
   //pembuat wadah matrix dari value ordo input 2
   const row2 = rowInput2;
