@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "@/src/components/header/Header";
 import OperationTitleResult from "@/src/components/main/OperationTitleResult";
-import MappingResult from "@/src/components/main/MappingResult";
+import MappingResult from "@/src/features/MappingResult";
 import Footer from "@/src/components/footer/Footer";
 
 const MainPage = ({
