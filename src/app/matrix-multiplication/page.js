@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import MainPage from "@/src/components/MainPage";
+import MainPage from "@/src/components/main/MainPage";
 import useMultiplication from "@/src/hooks/useMultiplication";
 
 const MatrixMultiplication = () => {

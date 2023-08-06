@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import MainPage from "@/src/components/MainPage";
+import MainPage from "@/src/components/main/MainPage";
 import useSubtraction from "@/src/hooks/useSubtraction";
 
 const MatrixReduction = () => {

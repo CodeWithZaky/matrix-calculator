@@ -2,6 +2,7 @@ import useResult from "./useResult";
 
 const useMultiplication = () => {
   const [results, setResults] = useResult();
+
   const mulFuch = (a, b) => {
     if (a[0].length !== b.length) {
       return alert("Dimensi matriks tidak sesuai");

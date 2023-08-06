@@ -1,7 +1,8 @@
-export default function Layout({ children }) {
+export default function RootLayout({ children }) {
   return (
-    <>
-      <main>{children}</main>
-    </>
-  );
+    <html>
+      <head />
+      <body>{children}</body>
+    </html>
+  )
 }
