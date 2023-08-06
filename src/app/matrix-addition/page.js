@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import MainPage from "@/src/components/main/MainPage";
 import useAddition from "@/src/hooks/useAddition";
 import SettingInput from "@/src/features/SettingInput";
-import useOrdoMaker from "@/src/hooks/useOrdoMaker";
 
 const MatrixAddition = () => {
   const [matrixA, setMatrixA] = useState([
