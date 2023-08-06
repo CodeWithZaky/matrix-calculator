@@ -1,7 +1,7 @@
 const loading = () => {
   return (
-    <div className="min-h-screen min-w-screen flex justify-center items-center">
-      <div className="text-center text-5xl font-semibold">loading...</div>
+    <div className="flex items-center justify-center min-h-screen min-w-screen">
+      <div className="text-5xl font-semibold text-center">loading...</div>
     </div>
   );
 };

@@ -15,12 +15,12 @@ const MainPage = ({
   results,
 }) => {
   return (
-    <main className="flex flex-col justify-between items-center min-w-screen min-h-screen gap-3 ">
+    <main className="flex flex-col items-center justify-between min-h-screen gap-3 min-w-screen">
       <Header title="MATRIX ADDITION" />
-      <section className="w-auto h-auto flex flex-col justify-center items-center">
-        <div className="flex w-full flex-col sm:flex-row gap-3 mb-2">
-          <section className="border border-blue-800 bg-slate-200 rounded">
-            <p className="text-3xl bg-blue-900 text-white text-center">
+      <section className="flex flex-col items-center justify-center w-auto h-auto">
+        <div className="flex flex-col w-full gap-3 mb-2 sm:flex-row">
+          <section className="border border-blue-800 rounded bg-slate-200">
+            <p className="text-3xl text-center text-white bg-blue-900">
               MATRIX A
             </p>
             <div className="mb-4">{settingInput1}</div>
@@ -28,14 +28,14 @@ const MainPage = ({
               {arrInput1}
               <button
                 type="submit"
-                className="w-full bg-slate-600 text-white active:bg-slate-400 px-3 py-0.5 mt-4"
+                className="w-full px-3 bg-slate-600 text-white active:bg-slate-400 py-0.5 mt-4"
               >
                 submit
               </button>
             </form>
           </section>
-          <section className="border border-blue-800 bg-slate-200 rounded">
-            <p className="text-3xl bg-blue-900 text-white text-center">
+          <section className="border border-blue-800 rounded bg-slate-200">
+            <p className="text-3xl text-center text-white bg-blue-900">
               MATRIX B
             </p>
             <div className="mb-4">{settingInput2}</div>
@@ -50,8 +50,8 @@ const MainPage = ({
             </form>
           </section>
         </div>
-        <div className="w-full flex flex-col justify-center items-center bg-slate-200 border border-blue-800 gap-3 rounded">
-          <div className="w-full px-5 bg-blue-900/90 text-center">
+        <div className="flex flex-col items-center justify-center w-full gap-3 border border-blue-800 rounded bg-slate-200 ">
+          <div className="w-full px-5 text-center bg-blue-900/90">
             <button
               onClick={() => {
                 fuchLogic();
@@ -61,7 +61,7 @@ const MainPage = ({
               RESULT
             </button>
           </div>
-          <div className="flex justify-center items-center gap-5 mb-3 px-1">
+          <div className="flex items-center justify-center gap-5 px-1 mb-3">
             <OperationTitleResult title="A + B =" />
             <MappingResult results={results} />
           </div>

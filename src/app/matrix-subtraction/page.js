@@ -48,7 +48,7 @@ const MatrixReduction = () => {
       onSubmit={handleSubmitOrdo1}
       className="flex justify-start gap-4 px-2 py-1"
     >
-      <div className="flex border border-slate-400 rounded gap-3">
+      <div className="flex gap-3 border rounded border-slate-400">
         <section className="flex flex-col ml-0.5 my-0.5">
           <div>row</div>
           <input
@@ -145,7 +145,7 @@ const MatrixReduction = () => {
       onSubmit={handleSubmitOrdo2}
       className="flex justify-start gap-4 px-2 py-1"
     >
-      <div className="flex border border-slate-400 rounded gap-3">
+      <div className="flex gap-3 border rounded border-slate-400">
         <section className="flex flex-col ml-0.5 my-0.5">
           <div>row</div>
           <input
