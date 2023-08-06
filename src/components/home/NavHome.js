@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 
-const NavLinkHome = () => {
+const NavHome = () => {
   const NavLink = [
     {
       href: "matrix-addition-112210010",
@@ -41,4 +41,4 @@ const NavLinkHome = () => {
   );
 };
 
-export default NavLinkHome;
+export default NavHome;

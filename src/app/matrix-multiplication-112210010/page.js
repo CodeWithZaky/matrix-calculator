@@ -1,9 +1,7 @@
 "use client";
 import { useState } from "react";
-import ResultsMap from "components/ResultsMap";
-import OperationTitleResult from "components/OperationTitleResult";
-import Header from "components/Header";
-import Footer from "components/Footer";
+import MainPage from "@/src/components/MainPage";
+import useMultiplication from "@/src/hooks/useMultiplication";
 
 const MatrixMultiplication = () => {
   const [matrixA, setMatrixA] = useState([
@@ -16,11 +14,7 @@ const MatrixMultiplication = () => {
     [0, 0, 0],
     [0, 0, 0],
   ]);
-  const [results, setResults] = useState([
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-  ]);
+
   const [rowInput1, setRowInput1] = useState([3]);
   const [colInput1, setColInput1] = useState([3]);
   const [rowInput2, setRowInput2] = useState([3]);
@@ -223,97 +217,20 @@ const MatrixMultiplication = () => {
   //-----------------------------------------------------------------------------//
   //---------------------------MULTIPLICATION FUNCTION---------------------------//
   //-----------------------------------------------------------------------------//
-  const multiplicationFuch = (a, b) => {
-    if (a[0].length !== b.length) {
-      return alert("Dimensi matriks tidak sesuai");
-    }
-    if (!isInputValid(a) || !isInputValid(b)) {
-      return alert("Input harus berupa angka");
-    }
-    function isInputValid(matrix) {
-      for (let i = 0; i < matrix.length; i++) {
-        for (let j = 0; j < matrix[i].length; j++) {
-          if (isNaN(matrix[i][j])) {
-            return false;
-          }
-        }
-      }
-      return true;
-    }
-    // Membuat matriks kosong dengan ukuran yang sesuai
-    let resultMatrix = [];
-    for (let i = 0; i < a.length; i++) {
-      resultMatrix[i] = new Array(b[0].length).fill(0);
-    }
 
-    // Melakukan operasi perkalian matriks
-    for (let i = 0; i < a.length; i++) {
-      for (let j = 0; j < b[0].length; j++) {
-        for (let k = 0; k < b.length; k++) {
-          resultMatrix[i][j] += a[i][k] * b[k][j];
-        }
-      }
-    }
-    setResults(resultMatrix);
-  };
+  const { results, mulFuch } = useMultiplication();
 
   return (
-    <main className="flex flex-col justify-between items-center min-w-screen min-h-screen gap-3">
-      <Header title="MATRIX MULTIPLICATION" />
-      <section className="container flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex w-full flex-col sm:flex-row gap-3 mb-2">
-            <section className="border border-blue-800 bg-slate-200 rounded">
-              <p className="text-3xl bg-blue-900 text-white text-center">
-                MATRIX A
-              </p>
-              <div className="mb-4">{settingInput1}</div>
-              <form onSubmit={handleSubmit1} className="flex-col">
-                {arrInput1}
-                <button
-                  type="submit"
-                  className="w-full bg-slate-600 text-white active:bg-slate-400 px-3 py-0.5 mt-4"
-                >
-                  submit
-                </button>
-              </form>
-            </section>
-            <section className="border border-blue-800 bg-slate-200 rounded">
-              <p className="text-3xl bg-blue-900 text-white text-center">
-                MATRIX B
-              </p>
-              <div className="mb-4">{settingInput2}</div>
-              <form onSubmit={handleSubmit2} className="flex-col">
-                {arrInput2}
-                <button
-                  type="submit"
-                  className="w-full bg-slate-600 text-white active:bg-slate-400  px-3 py-0.5 mt-4"
-                >
-                  submit
-                </button>
-              </form>
-            </section>
-          </div>
-          <div className="w-full flex flex-col justify-center items-center bg-slate-200 gap-3 border border-blue-800">
-            <div className="w-full px-5 bg-blue-900/90 text-center">
-              <button
-                onClick={() => {
-                  multiplicationFuch(matrixA, matrixB);
-                }}
-                className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-400"
-              >
-                RESULT
-              </button>
-            </div>
-            <div className="flex justify-center items-center gap-5 mb-3 px-1">
-              <OperationTitleResult title="A x B =" />
-              <ResultsMap results={results} />
-            </div>
-          </div>
-        </div>
-      </section>
-      <Footer />
-    </main>
+    <MainPage
+      settingInput1={settingInput1}
+      handleSubmit1={handleSubmit1}
+      arrInput1={arrInput1}
+      settingInput2={settingInput2}
+      handleSubmit2={handleSubmit2}
+      arrInput2={arrInput2}
+      fuchLogic={() => mulFuch(matrixA, matrixB)}
+      results={results}
+    />
   );
 };
 

@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../../node_modules/tailwindcss/tailwind.css";
 
 export default function RootLayout({ children }) {
   return (

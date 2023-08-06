@@ -1,9 +1,7 @@
 "use client";
 import { useState } from "react";
-import ResultsMap from "components/ResultsMap";
-import OperationTitleResult from "components/OperationTitleResult";
-import Header from "components/Header";
-import Footer from "components/Footer";
+import MainPage from "@/src/components/MainPage";
+import useSubtraction from "@/src/hooks/useSubtraction";
 
 const MatrixReduction = () => {
   const [matrixA, setMatrixA] = useState([
@@ -16,11 +14,7 @@ const MatrixReduction = () => {
     [0, 0, 0],
     [0, 0, 0],
   ]);
-  const [results, setResults] = useState([
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-  ]);
+
   const [rowInput1, setRowInput1] = useState([3]);
   const [colInput1, setColInput1] = useState([3]);
   const [rowInput2, setRowInput2] = useState([3]);
@@ -221,87 +215,19 @@ const MatrixReduction = () => {
   //------------------------------------------------------------------------//
   //---------------------------REDUCTION FUNCTION---------------------------//
   //------------------------------------------------------------------------//
-  const reductionFuch = (a, b) => {
-    // Cek apakah ukuran kedua matriks sama
-    if (a.length !== b.length) {
-      return alert("pada operasi penambahan dan pengurangan ordo harus sama");
-    }
-    if (a[0].length !== b[0].length) {
-      return alert("pada operasi penambahan dan pengurangan ordo harus sama");
-    }
-    // Buat matriks kosong untuk menyimpan hasil penjumlahan
-    const result = [];
-    // Lakukan penjumlahan elemen per elemen dari kedua matriks
-    for (let i = 0; i < a.length; i++) {
-      const row = [];
-      for (let j = 0; j < a[0].length; j++) {
-        if (isNaN(a[i][j]) || isNaN(b[i][j])) {
-          return alert("Input harus berupa angka");
-        }
-        row.push(parseInt(a[i][j]) - parseInt(b[i][j]));
-      }
-      result.push(row);
-    }
-    setResults(result);
-  };
+  const { results, subFuch } = useSubtraction();
 
   return (
-    <main className="flex flex-col justify-between items-center min-w-screen min-h-screen gap-3 ">
-      <Header title="MATRIX SUBTRACTION" />
-      <section className="container flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex w-full flex-col sm:flex-row gap-3 mb-2">
-            <section className="border border-blue-800 bg-slate-200 rounded">
-              <p className="text-3xl bg-blue-900 text-white text-center">
-                MATRIX A
-              </p>
-              <div className="mb-4">{settingInput1}</div>
-              <form onSubmit={handleSubmit1} className="flex-col">
-                {arrInput1}
-                <button
-                  type="submit"
-                  className="w-full bg-slate-600 text-white active:bg-slate-400 px-3 py-0.5 mt-4"
-                >
-                  submit
-                </button>
-              </form>
-            </section>
-            <section className="border border-blue-800 bg-slate-200 rounded">
-              <p className="text-3xl bg-blue-900 text-white text-center">
-                MATRIX B
-              </p>
-              <div className="mb-4">{settingInput2}</div>
-              <form onSubmit={handleSubmit2} className="flex-col">
-                {arrInput2}
-                <button
-                  type="submit"
-                  className="w-full bg-slate-600 text-white active:bg-slate-400  px-3 py-0.5 mt-4"
-                >
-                  submit
-                </button>
-              </form>
-            </section>
-          </div>
-          <div className="w-full flex flex-col justify-center items-center bg-slate-200 border border-blue-800 gap-3 rounded">
-            <div className="w-full px-5 bg-blue-900/90 text-center">
-              <button
-                onClick={() => {
-                  reductionFuch(matrixA, matrixB);
-                }}
-                className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-400"
-              >
-                RESULT
-              </button>
-            </div>
-            <div className="flex justify-center items-center gap-5 mb-3 px-1">
-              <OperationTitleResult title="A - B =" />
-              <ResultsMap results={results} />
-            </div>
-          </div>
-        </div>
-      </section>
-      <Footer />
-    </main>
+    <MainPage
+      settingInput1={settingInput1}
+      handleSubmit1={handleSubmit1}
+      arrInput1={arrInput1}
+      settingInput2={settingInput2}
+      handleSubmit2={handleSubmit2}
+      arrInput2={arrInput2}
+      fuchLogic={() => subFuch(matrixA, matrixB)}
+      results={results}
+    />
   );
 };
 
