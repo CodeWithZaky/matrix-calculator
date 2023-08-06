@@ -16,31 +16,27 @@ const NavLink = () => {
       </Link>
       <Link
         className={`px-1 rounded-lg  font-semibold underline ${
-          pathname == "/matrix-addition-112210010"
-            ? "text-slate-800"
-            : "text-blue-900"
+          pathname == "/matrix-addition" ? "text-slate-800" : "text-blue-900"
         }`}
-        href="/matrix-addition-112210010"
+        href="/matrix-addition"
       >
         Matrix Addition
       </Link>
       <Link
         className={`px-1 rounded-lg  font-semibold underline ${
-          pathname == "/matrix-subtraction-112210010"
-            ? "text-slate-800"
-            : "text-blue-900"
+          pathname == "/matrix-subtraction" ? "text-slate-800" : "text-blue-900"
         }`}
-        href="/matrix-subtraction-112210010"
+        href="/matrix-subtraction"
       >
         Matrix Subtraction
       </Link>
       <Link
         className={`px-1 rounded-lg font-semibold underline ${
-          pathname == "/matrix-multiplication-112210010"
+          pathname == "/matrix-multiplication"
             ? "text-slate-800"
             : "text-blue-900"
         }`}
-        href="/matrix-multiplication-112210010"
+        href="/matrix-multiplication"
       >
         Matrix Multiplication
       </Link>

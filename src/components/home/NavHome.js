@@ -5,17 +5,17 @@ import Link from "next/link";
 const NavHome = () => {
   const NavLink = [
     {
-      href: "matrix-addition-112210010",
+      href: "matrix-addition",
       h1: "matrix addition",
       p: "+",
     },
     {
-      href: "matrix-subtraction-112210010",
+      href: "matrix-subtraction",
       h1: "matrix subtraction",
       p: "-",
     },
     {
-      href: "matrix-multiplication-112210010",
+      href: "matrix-multiplication",
       h1: "matrix multiplication",
       p: "x",
     },
