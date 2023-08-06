@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MainPage from "@/src/components/main/MainPage";
 import useAddition from "@/src/hooks/useAddition";
 import SettingInput from "@/src/features/SettingInput";
