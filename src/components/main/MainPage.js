@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "@/src/components/header/Header";
 import Footer from "@/src/components/footer/Footer";
 import FormContainer from "./FormContainer";
@@ -19,7 +18,7 @@ const MainPage = ({
     <main className="flex flex-col items-center justify-between min-h-screen gap-3 min-w-screen">
       <Header title="MATRIX ADDITION" />
       <section className="flex flex-col items-center justify-center w-auto h-auto">
-        <div className="flex flex-col w-full gap-3 mb-2 sm:flex-row">
+        <section className="flex flex-col w-full gap-3 mb-2 sm:flex-row">
           <FormContainer
             tittle={"MATRIX A"}
             settingInput={settingInput1}
@@ -32,7 +31,7 @@ const MainPage = ({
             handleSubmit={handleSubmit2}
             arrInput={arrInput2}
           />
-        </div>
+        </section>
         <ResultContainer
           funcLogic={funcLogic}
           results={results}
