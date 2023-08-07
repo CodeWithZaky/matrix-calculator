@@ -3,7 +3,7 @@ import useResult from "./useResult";
 const useMultiplication = () => {
   const [results, setResults] = useResult();
 
-  const mulFuch = (a, b) => {
+  const mulFunc = (a, b) => {
     if (a[0].length !== b.length) {
       return alert("Dimensi matriks tidak sesuai");
     }
@@ -36,7 +36,7 @@ const useMultiplication = () => {
     }
     setResults(resultMatrix);
   };
-  return { results, mulFuch };
+  return { results, mulFunc };
 };
 
 export default useMultiplication;

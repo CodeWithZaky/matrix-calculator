@@ -2,7 +2,7 @@ import useResult from "./useResult";
 
 const useSubtraction = () => {
   const [results, setResults] = useResult();
-  const subFuch = (a, b) => {
+  const subFunc = (a, b) => {
     // Cek apakah ukuran kedua matriks sama
     if (a.length !== b.length) {
       return alert("pada operasi penambahan dan pengurangan ordo harus sama");
@@ -25,6 +25,6 @@ const useSubtraction = () => {
     }
     setResults(result);
   };
-  return { results, subFuch };
+  return { results, subFunc };
 };
 export default useSubtraction;

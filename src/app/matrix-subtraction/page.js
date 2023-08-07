@@ -215,7 +215,7 @@ const MatrixReduction = () => {
   //------------------------------------------------------------------------//
   //---------------------------REDUCTION FUNCTION---------------------------//
   //------------------------------------------------------------------------//
-  const { results, subFuch } = useSubtraction();
+  const { results, subFunc } = useSubtraction();
 
   return (
     <MainPage
@@ -225,8 +225,9 @@ const MatrixReduction = () => {
       settingInput2={settingInput2}
       handleSubmit2={handleSubmit2}
       arrInput2={arrInput2}
-      fuchLogic={() => subFuch(matrixA, matrixB)}
+      funcLogic={() => subFunc(matrixA, matrixB)}
       results={results}
+      operation={"A - B ="}
     />
   );
 };

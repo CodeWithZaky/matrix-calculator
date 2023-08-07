@@ -171,7 +171,7 @@ const MatrixAddition = () => {
   //---------------------------ADDITIONAL FUNCTION---------------------------//
   //-------------------------------------------------------------------------//
 
-  const { results, addFuch } = useAddition();
+  const { results, addFunc } = useAddition();
 
   return (
     <MainPage
@@ -181,8 +181,9 @@ const MatrixAddition = () => {
       settingInput2={settingInput2}
       handleSubmit2={handleSubmit2}
       arrInput2={arrInput2}
-      fuchLogic={() => addFuch(matrixA, matrixB)}
+      funcLogic={() => addFunc(matrixA, matrixB)}
       results={results}
+      operation={"A + B ="}
     />
   );
 };
