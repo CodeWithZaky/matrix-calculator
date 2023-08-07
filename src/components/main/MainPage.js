@@ -56,7 +56,7 @@ const MainPage = ({
               onClick={() => {
                 fuchLogic();
               }}
-              className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-400"
+              className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-400 text-center"
             >
               RESULT
             </button>
