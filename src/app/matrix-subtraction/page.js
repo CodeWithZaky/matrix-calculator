@@ -2,6 +2,8 @@
 import { useState } from "react";
 import MainPage from "@/src/components/main/MainPage";
 import useSubtraction from "@/src/hooks/useSubtraction";
+import OrdoSettingValidator from "@/src/services/OrdoSettingValidator";
+import SettingInput from "@/src/features/SettingInput";
 
 const MatrixReduction = () => {
   const [matrixA, setMatrixA] = useState([
@@ -27,51 +29,18 @@ const MatrixReduction = () => {
   //handle submit value setting ordo form input 1
   const handleSubmitOrdo1 = (e) => {
     e.preventDefault();
-    for (let i = 0; i < 2; i++) {
-      if (e.target[i].value === "") {
-        return alert("masukan harus di isi minimal 1");
-      }
-      if (e.target[i].value < 1) {
-        return alert("masukan harus di isi minimal 1");
-      }
-      if (isNaN(e.target[i].value)) {
-        return alert("masukan berupa angka");
-      }
-    }
+    OrdoSettingValidator(e);
     setRowInput1(e.target[0].value);
     setColInput1(e.target[1].value);
   };
 
   //setting ordo input form 1
   const settingInput1 = (
-    <form
-      onSubmit={handleSubmitOrdo1}
-      className="flex justify-start gap-4 px-2 py-1"
-    >
-      <div className="flex gap-3 border rounded border-slate-400">
-        <section className="flex flex-col ml-0.5 my-0.5">
-          <div>row</div>
-          <input
-            type="number"
-            min={0}
-            defaultValue={rowInput1}
-            className="border w-[60px] border-slate-700 rounded text-center"
-          />
-        </section>
-        <section className="flex flex-col my-0.5">
-          <div>colomn</div>
-          <input
-            type="number"
-            min={0}
-            defaultValue={colInput1}
-            className="border w-[60px] border-slate-700 rounded text-center"
-          />
-        </section>
-        <button type="submit" className="px-2 text-white bg-slate-700">
-          save
-        </button>
-      </div>
-    </form>
+    <SettingInput
+      handleSubmitOrdo={handleSubmitOrdo1}
+      rowInput={rowInput1}
+      colInput={colInput1}
+    />
   );
 
   //pembuat wadah matrix dari value ordo input 1
@@ -79,7 +48,6 @@ const MatrixReduction = () => {
   const col1 = colInput1;
   const arrRow1 = [];
   const arrInput1 = [];
-
   for (let i = 0; i < col1; i++) {
     arrRow1.push(
       <input
@@ -105,9 +73,11 @@ const MatrixReduction = () => {
     for (let i = 0; i < ordo1; i++) {
       if (e.target[i].value === "") {
         alert("masukan tidak boleh kosong");
+        return;
       }
       if (isNaN(e.target[i].value)) {
         alert("masukan harus angka");
+        return;
       }
       inputResult1.push(e.target[i].value);
     }
@@ -124,51 +94,18 @@ const MatrixReduction = () => {
   //handle submit value setting ordo form input 2
   const handleSubmitOrdo2 = (e) => {
     e.preventDefault();
-    for (let i = 0; i < 2; i++) {
-      if (e.target[i].value === "") {
-        return alert("masukan harus di isi minimal 1");
-      }
-      if (e.target[i].value < 1) {
-        return alert("masukan harus di isi minimal 1");
-      }
-      if (isNaN(e.target[i].value)) {
-        return alert("masukan berupa angka");
-      }
-    }
+    OrdoSettingValidator(e);
     setRowInput2(e.target[0].value);
     setColInput2(e.target[1].value);
   };
 
   //setting ordo input form 2
   const settingInput2 = (
-    <form
-      onSubmit={handleSubmitOrdo2}
-      className="flex justify-start gap-4 px-2 py-1"
-    >
-      <div className="flex gap-3 border rounded border-slate-400">
-        <section className="flex flex-col ml-0.5 my-0.5">
-          <div>row</div>
-          <input
-            type="number"
-            min={0}
-            defaultValue={rowInput2}
-            className="border w-[60px] border-slate-700 rounded text-center"
-          />
-        </section>
-        <section className="flex flex-col my-0.5">
-          <div>colomn</div>
-          <input
-            type="number"
-            min={0}
-            defaultValue={colInput2}
-            className="border w-[60px] border-slate-700 rounded text-center"
-          />
-        </section>
-        <button type="submit" className="px-2 text-white bg-slate-700">
-          save
-        </button>
-      </div>
-    </form>
+    <SettingInput
+      handleSubmitOrdo={handleSubmitOrdo2}
+      rowInput={rowInput2}
+      colInput={colInput2}
+    />
   );
   //pembuat wadah matrix dari value ordo input 2
   const row2 = rowInput2;
@@ -200,9 +137,11 @@ const MatrixReduction = () => {
     for (let i = 0; i < ordo2; i++) {
       if (e.target[i].value === "") {
         alert("masukan tidak boleh kosong");
+        return;
       }
       if (isNaN(e.target[i].value)) {
         alert("masukan harus angka");
+        return;
       }
       inputResult2.push(e.target[i].value);
     }

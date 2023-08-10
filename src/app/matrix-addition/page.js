@@ -3,6 +3,7 @@ import { useState } from "react";
 import MainPage from "@/src/components/main/MainPage";
 import useAddition from "@/src/hooks/useAddition";
 import SettingInput from "@/src/features/SettingInput";
+import OrdoSettingValidator from "@/src/services/OrdoSettingValidator";
 
 const MatrixAddition = () => {
   const [matrixA, setMatrixA] = useState([
@@ -28,21 +29,10 @@ const MatrixAddition = () => {
   //handle submit value setting ordo form input 1
   const handleSubmitOrdo1 = (e) => {
     e.preventDefault();
-    for (let i = 0; i < 2; i++) {
-      if (e.target[i].value === "") {
-        return alert("masukan harus di isi minimal 1");
-      }
-      if (e.target[i].value < 1) {
-        return alert("masukan harus di isi minimal 1");
-      }
-      if (isNaN(e.target[i].value)) {
-        return alert("masukan berupa angka");
-      }
-    }
+    OrdoSettingValidator(e);
     setRowInput1(e.target[0].value);
     setColInput1(e.target[1].value);
   };
-
   //setting ordo input form 1
   const settingInput1 = (
     <SettingInput
@@ -51,13 +41,10 @@ const MatrixAddition = () => {
       colInput={colInput1}
     />
   );
-
   //pembuat wadah matrix dari value ordo input 1
-  const row1 = rowInput1;
-  const col1 = colInput1;
   const arrRow1 = [];
   const arrInput1 = [];
-  for (let i = 0; i < col1; i++) {
+  for (let i = 0; i < colInput1; i++) {
     arrRow1.push(
       <input
         key={i}
@@ -66,14 +53,13 @@ const MatrixAddition = () => {
       />
     );
   }
-  for (let i = 0; i < row1; i++) {
+  for (let i = 0; i < rowInput1; i++) {
     arrInput1.push(
       <div key={i} className="flex px-1">
         {arrRow1}
       </div>
     );
   }
-
   //handle submit value matrix input 1
   const handleSubmit1 = (e) => {
     e.preventDefault();
@@ -82,16 +68,18 @@ const MatrixAddition = () => {
     for (let i = 0; i < ordo1; i++) {
       if (e.target[i].value === "") {
         alert("masukan tidak boleh kosong");
+        return;
       }
       if (isNaN(e.target[i].value)) {
         alert("masukan harus angka");
+        return;
       }
       inputResult1.push(e.target[i].value);
     }
-    const arr2dInputResults1 = [];
+    const arr2DInputResults1 = [];
     while (inputResult1.length)
-      arr2dInputResults1.push(inputResult1.splice(0, col1));
-    setMatrixA(arr2dInputResults1);
+      arr2DInputResults1.push(inputResult1.splice(0, colInput1));
+    setMatrixA(arr2DInputResults1);
   };
 
   //------------------------------------------------------------------------//
@@ -101,21 +89,10 @@ const MatrixAddition = () => {
   //handle submit value setting ordo form input 2
   const handleSubmitOrdo2 = (e) => {
     e.preventDefault();
-    for (let i = 0; i < 2; i++) {
-      if (e.target[i].value === "") {
-        return alert("masukan harus di isi minimal 1");
-      }
-      if (e.target[i].value < 1) {
-        return alert("masukan harus di isi minimal 1");
-      }
-      if (isNaN(e.target[i].value)) {
-        return alert("masukan berupa angka");
-      }
-    }
+    OrdoSettingValidator(e);
     setRowInput2(e.target[0].value);
     setColInput2(e.target[1].value);
   };
-
   //setting ordo input form 2
   const settingInput2 = (
     <SettingInput
@@ -125,12 +102,9 @@ const MatrixAddition = () => {
     />
   );
   //pembuat wadah matrix dari value ordo input 2
-  const row2 = rowInput2;
-  const col2 = colInput2;
   const arrRow2 = [];
   const arrInput2 = [];
-
-  for (let i = 0; i < col2; i++) {
+  for (let i = 0; i < colInput2; i++) {
     arrRow2.push(
       <input
         defaultValue={0}
@@ -139,14 +113,13 @@ const MatrixAddition = () => {
       />
     );
   }
-  for (let i = 0; i < row2; i++) {
+  for (let i = 0; i < rowInput2; i++) {
     arrInput2.push(
       <div key={i} className="flex px-1">
         {arrRow2}
       </div>
     );
   }
-
   //handle submit value matrix input 2
   const handleSubmit2 = (e) => {
     e.preventDefault();
@@ -155,22 +128,23 @@ const MatrixAddition = () => {
     for (let i = 0; i < ordo2; i++) {
       if (e.target[i].value === "") {
         alert("masukan tidak boleh kosong");
+        return;
       }
       if (isNaN(e.target[i].value)) {
         alert("masukan harus angka");
+        return;
       }
       inputResult2.push(e.target[i].value);
     }
-    const arr2dInputResults2 = [];
+    const arr2DInputResults2 = [];
     while (inputResult2.length)
-      arr2dInputResults2.push(inputResult2.splice(0, col2));
-    setMatrixB(arr2dInputResults2);
+      arr2DInputResults2.push(inputResult2.splice(0, colInput2));
+    setMatrixB(arr2DInputResults2);
   };
 
-  //-------------------------------------------------------------------------//
-  //---------------------------ADDITIONAL FUNCTION---------------------------//
-  //-------------------------------------------------------------------------//
-
+  //----------------------------
+  //-----ADDITIONAL FUNCTION----
+  //----------------------------
   const { results, addFunc } = useAddition();
 
   return (
