@@ -20,13 +20,12 @@ const useMultiplication = () => {
       }
       return true;
     }
-    // Membuat matriks kosong dengan ukuran yang sesuai
+
     let resultMatrix = [];
     for (let i = 0; i < a.length; i++) {
       resultMatrix[i] = new Array(b[0].length).fill(0);
     }
 
-    // Melakukan operasi perkalian matriks
     for (let i = 0; i < a.length; i++) {
       for (let j = 0; j < b[0].length; j++) {
         for (let k = 0; k < b.length; k++) {
@@ -36,6 +35,7 @@ const useMultiplication = () => {
     }
     setResults(resultMatrix);
   };
+
   return { results, mulFunc };
 };
 

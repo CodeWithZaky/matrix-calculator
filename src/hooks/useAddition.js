@@ -11,7 +11,7 @@ const useAddition = () => {
       return alert("pada operasi penambahan dan pengurangan ordo harus sama");
     }
 
-    const result = []; // Buat matriks kosong untuk menyimpan hasil penjumlahan
+    const result = [];
 
     for (let i = 0; i < a.length; i++) {
       const row = [];
@@ -25,6 +25,8 @@ const useAddition = () => {
     }
     setResults(result);
   };
+
   return { results, addFunc };
 };
+
 export default useAddition;
