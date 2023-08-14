@@ -2,7 +2,6 @@
 import { useState } from "react";
 import MainPage from "@/src/components/main/MainPage";
 import useMultiplication from "@/src/hooks/useMultiplication";
-import OrdoSettingValidator from "@/src/services/OrdoSettingValidator";
 import SettingInput from "@/src/features/SettingInput";
 
 const MatrixMultiplication = () => {
@@ -17,10 +16,10 @@ const MatrixMultiplication = () => {
     [0, 0, 0],
   ]);
 
-  const [rowInput1, setRowInput1] = useState([3]);
-  const [colInput1, setColInput1] = useState([3]);
-  const [rowInput2, setRowInput2] = useState([3]);
-  const [colInput2, setColInput2] = useState([3]);
+  const [row1, setRow1] = useState(3);
+  const [col1, setCol1] = useState(3);
+  const [row2, setRow2] = useState(3);
+  const [col2, setCol2] = useState(3);
 
   //------------------------------------------------------------------------//
   //--------------------------------MATRIX A--------------------------------//
@@ -29,26 +28,31 @@ const MatrixMultiplication = () => {
   //handle submit value setting ordo form input 1
   const handleSubmitOrdo1 = (e) => {
     e.preventDefault();
-    OrdoSettingValidator(e);
-    setRowInput1(e.target[0].value);
-    setColInput1(e.target[1].value);
+    for (let i = 0; i < 2; i++) {
+      if (e.target[i].value === "") {
+        return alert("masukan harus di isi minimal 1");
+      }
+      if (e.target[i].value < 1) {
+        return alert("masukan harus di isi minimal 1");
+      }
+      if (isNaN(e.target[i].value)) {
+        return alert("masukan berupa angka");
+      }
+    }
+    setRow1(e.target[0].value);
+    setCol1(e.target[1].value);
   };
-
   //setting ordo input form 1
   const settingInput1 = (
     <SettingInput
       handleSubmitOrdo={handleSubmitOrdo1}
-      rowInput={rowInput1}
-      colInput={colInput1}
+      rowInput={row1}
+      colInput={col1}
     />
   );
-
   //pembuat wadah matrix dari value ordo input 1
-  const row1 = rowInput1;
-  const col1 = colInput1;
   const arrRow1 = [];
   const arrInput1 = [];
-
   for (let i = 0; i < col1; i++) {
     arrRow1.push(
       <input
@@ -65,7 +69,6 @@ const MatrixMultiplication = () => {
       </div>
     );
   }
-
   //handle submit value matrix input 1
   const handleSubmit1 = (e) => {
     e.preventDefault();
@@ -82,10 +85,10 @@ const MatrixMultiplication = () => {
       }
       inputResult1.push(e.target[i].value);
     }
-    const arr2dInputResults1 = [];
+    const arr2DInputResults1 = [];
     while (inputResult1.length)
-      arr2dInputResults1.push(inputResult1.splice(0, col1));
-    setMatrixA(arr2dInputResults1);
+      arr2DInputResults1.push(inputResult1.splice(0, col1));
+    setMatrixA(arr2DInputResults1);
   };
 
   //------------------------------------------------------------------------//
@@ -95,26 +98,31 @@ const MatrixMultiplication = () => {
   //handle submit value setting ordo form input 2
   const handleSubmitOrdo2 = (e) => {
     e.preventDefault();
-    OrdoSettingValidator(e);
-    setRowInput2(e.target[0].value);
-    setColInput2(e.target[1].value);
+    for (let i = 0; i < 2; i++) {
+      if (e.target[i].value === "") {
+        return alert("masukan harus di isi minimal 1");
+      }
+      if (e.target[i].value < 1) {
+        return alert("masukan harus di isi minimal 1");
+      }
+      if (isNaN(e.target[i].value)) {
+        return alert("masukan berupa angka");
+      }
+    }
+    setRow2(e.target[0].value);
+    setCol2(e.target[1].value);
   };
-
   //setting ordo input form 2
   const settingInput2 = (
     <SettingInput
       handleSubmitOrdo={handleSubmitOrdo2}
-      rowInput={rowInput2}
-      colInput={colInput2}
+      rowInput={row2}
+      colInput={col2}
     />
   );
-
   //pembuat wadah matrix dari value ordo input 2
-  const row2 = rowInput2;
-  const col2 = colInput2;
   const arrRow2 = [];
   const arrInput2 = [];
-
   for (let i = 0; i < col2; i++) {
     arrRow2.push(
       <input
@@ -131,7 +139,6 @@ const MatrixMultiplication = () => {
       </div>
     );
   }
-
   //handle submit value matrix input 2
   const handleSubmit2 = (e) => {
     e.preventDefault();
@@ -148,10 +155,10 @@ const MatrixMultiplication = () => {
       }
       inputResult2.push(e.target[i].value);
     }
-    const arr2dInputResults2 = [];
+    const arr2DInputResults2 = [];
     while (inputResult2.length)
-      arr2dInputResults2.push(inputResult2.splice(0, col2));
-    setMatrixB(arr2dInputResults2);
+      arr2DInputResults2.push(inputResult2.splice(0, col2));
+    setMatrixB(arr2DInputResults2);
   };
 
   //-----------------------------------------------------------------------------//
