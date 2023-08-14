@@ -161,9 +161,7 @@ const MatrixAddition = () => {
     setMatrixB(arr2DInputResults2);
   };
 
-  //----------------------------
   //-----ADDITIONAL FUNCTION----
-  //----------------------------
   const { results, addFunc } = useAddition();
 
   return (
