@@ -6,6 +6,7 @@ const useResult = () => {
     [0, 0, 0],
     [0, 0, 0],
   ]);
+
   return [results, setResults];
 };
 

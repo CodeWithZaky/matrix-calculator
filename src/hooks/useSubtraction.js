@@ -12,6 +12,7 @@ const useSubtraction = () => {
     }
 
     const result = [];
+
     for (let i = 0; i < a.length; i++) {
       const row = [];
       for (let j = 0; j < a[0].length; j++) {

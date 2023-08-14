@@ -22,6 +22,7 @@ const useMultiplication = () => {
     }
 
     let resultMatrix = [];
+
     for (let i = 0; i < a.length; i++) {
       resultMatrix[i] = new Array(b[0].length).fill(0);
     }
