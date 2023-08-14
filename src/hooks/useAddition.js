@@ -3,7 +3,7 @@ import useResult from "./useResult";
 const useAddition = () => {
   const [results, setResults] = useResult();
 
-  const addFuch = (a, b) => {
+  const addFunc = (a, b) => {
     if (a.length !== b.length) {
       return alert("pada operasi penambahan dan pengurangan ordo harus sama");
     }
@@ -25,6 +25,6 @@ const useAddition = () => {
     }
     setResults(result);
   };
-  return { results, addFuch };
+  return { results, addFunc };
 };
 export default useAddition;

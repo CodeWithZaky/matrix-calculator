@@ -11,7 +11,7 @@ const MainPage = ({
   settingInput2,
   handleSubmit2,
   arrInput2,
-  fuchLogic,
+  funcLogic,
   results,
 }) => {
   return (
@@ -20,7 +20,7 @@ const MainPage = ({
       <section className="flex flex-col items-center justify-center w-auto h-auto">
         <div className="flex flex-col w-full gap-3 mb-2 sm:flex-row">
           <section className="border border-blue-800 rounded bg-slate-200">
-            <p className="text-3xl text-center text-white bg-blue-900">
+            <p className="px-5 text-3xl text-center text-white bg-blue-900">
               MATRIX A
             </p>
             <div className="mb-4">{settingInput1}</div>
@@ -35,7 +35,7 @@ const MainPage = ({
             </form>
           </section>
           <section className="border border-blue-800 rounded bg-slate-200">
-            <p className="text-3xl text-center text-white bg-blue-900">
+            <p className="px-5 text-3xl text-center text-white bg-blue-900">
               MATRIX B
             </p>
             <div className="mb-4">{settingInput2}</div>
@@ -54,7 +54,7 @@ const MainPage = ({
           <div className="w-full px-5 text-center bg-blue-900/90">
             <button
               onClick={() => {
-                fuchLogic();
+                funcLogic();
               }}
               className="bg-slate-900 my-2 px-4 py-0.5 rounded-lg active:bg-slate-800 text-3xl text-white border border-slate-400"
             >
