@@ -1,3 +1,4 @@
+"use client";
 const loading = () => {
   return (
     <div className="flex items-center justify-center min-h-screen min-w-screen">
