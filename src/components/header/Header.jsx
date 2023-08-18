@@ -10,7 +10,7 @@ const HeaderPage = ({ title }) => {
       <TitleMatrix title={title} />
       <div className="flex items-center justify-end w-1/3">
         <Link
-          className="w-min hidden sm:block px-3 py-0.5 rounded-md text-center font-semibold border-2 border-blue-400/90 text-slate-800 bg-slate-100 hover:bg-slate-200 active:bg-slate-200"
+          className="w-min hidden sm:block px-3 py-0.5 rounded-md text-center font-semibold border-2 border-blue-300 text-white bg-blue-900 hover:bg-blue-700 active:bg-slate-200"
           href={"/"}
         >
           Home

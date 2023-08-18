@@ -25,7 +25,10 @@ const SettingInput = ({ handleSubmitOrdo, rowInput, colInput }) => {
             className="border w-[60px] border-slate-700 rounded text-center"
           />
         </section>
-        <button type="submit" className="px-2 text-white bg-slate-700">
+        <button
+          type="submit"
+          className="px-2 text-white bg-blue-900 rounded-sm"
+        >
           save
         </button>
       </div>
