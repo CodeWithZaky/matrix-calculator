@@ -166,6 +166,7 @@ const MatrixAddition = () => {
 
   return (
     <MainPage
+      title="MATRIX ADDITION"
       settingInput1={settingInput1}
       handleSubmit1={handleSubmit1}
       arrInput1={arrInput1}

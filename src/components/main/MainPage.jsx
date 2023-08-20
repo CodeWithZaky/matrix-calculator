@@ -6,6 +6,7 @@ import Footer from "@/src/components/footer/Footer";
 import CardMatrix from "./CardMatrix";
 
 const MainPage = ({
+  title,
   settingInput1,
   handleSubmit1,
   arrInput1,
@@ -17,7 +18,7 @@ const MainPage = ({
 }) => {
   return (
     <main className="flex flex-col items-center justify-between min-h-screen gap-3 min-w-screen">
-      <Header title="MATRIX ADDITION" />
+      <Header title={title} />
       <section className="flex flex-col items-center justify-center w-auto h-auto">
         <div className="flex flex-col w-full gap-3 sm:flex-row">
           <CardMatrix
