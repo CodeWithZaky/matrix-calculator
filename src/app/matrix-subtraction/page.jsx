@@ -168,6 +168,7 @@ const MatrixReduction = () => {
 
   return (
     <MainPage
+      title="MATRIX SUBTRACTION"
       settingInput1={settingInput1}
       handleSubmit1={handleSubmit1}
       arrInput1={arrInput1}
