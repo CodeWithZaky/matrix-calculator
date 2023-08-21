@@ -11,7 +11,7 @@ const CardMatrix = ({ title, settingInput, handleSubmit, arrInput }) => {
         {arrInput}
         <button
           type="submit"
-          className="w-full px-3 rounded-sm bg-blue-900 text-white active:bg-slate-400 py-0.5 mt-4"
+          className="btn w-full px-3 rounded-md bg-blue-900 hover:bg-blue-800 text-white active:bg-slate-400 py-0.5 mt-4"
         >
           submit
         </button>
