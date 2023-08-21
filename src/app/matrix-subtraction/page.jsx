@@ -2,7 +2,8 @@
 import { useState } from "react";
 import MainPage from "@/src/components/main/MainPage";
 import useSubtraction from "@/src/hooks/useSubtraction";
-import SettingInput from "@/src/features/SettingInput";
+import SettingInput from "@/src/components/main/SettingInput";
+import Swal from "sweetalert2";
 
 const MatrixReduction = () => {
   const [matrixA, setMatrixA] = useState([
@@ -21,22 +22,34 @@ const MatrixReduction = () => {
   const [row2, setRow2] = useState(3);
   const [col2, setCol2] = useState(3);
 
-  //------------------------------------------------------------------------//
-  //--------------------------------MATRIX A--------------------------------//
-  //------------------------------------------------------------------------//
+  //==========================================================================//
+  //=================================MATRIX A=================================//
+  //==========================================================================//
 
   //handle submit value setting ordo form input 1
   const handleSubmitOrdo1 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
       if (e.target[i].value === "") {
-        return alert("masukan harus di isi minimal 1");
+        Swal.fire({
+          icon: "error",
+          title: "masukan tidak boleh kosong!",
+        });
+        return;
       }
       if (e.target[i].value < 1) {
-        return alert("masukan harus di isi minimal 1");
+        Swal.fire({
+          icon: "error",
+          title: "masukan harus di isi, minimal 1",
+        });
+        return;
       }
       if (isNaN(e.target[i].value)) {
-        return alert("masukan berupa angka");
+        Swal.fire({
+          icon: "error",
+          title: "masukan harus angka",
+        });
+        return;
       }
     }
     setRow1(e.target[0].value);
@@ -76,11 +89,17 @@ const MatrixReduction = () => {
     const ordo1 = arrInput1.length * arrRow1.length;
     for (let i = 0; i < ordo1; i++) {
       if (e.target[i].value === "") {
-        alert("masukan tidak boleh kosong");
+        Swal.fire({
+          icon: "error",
+          title: "masukan tidak boleh kosong!",
+        });
         return;
       }
       if (isNaN(e.target[i].value)) {
-        alert("masukan harus angka");
+        Swal.fire({
+          icon: "error",
+          title: "masukan harus angka",
+        });
         return;
       }
       inputResult1.push(e.target[i].value);
@@ -91,22 +110,34 @@ const MatrixReduction = () => {
     setMatrixA(arr2DInputResults1);
   };
 
-  //------------------------------------------------------------------------//
-  //--------------------------------MATRIX B--------------------------------//
-  //------------------------------------------------------------------------//
+  //==========================================================================//
+  //=================================MATRIX B=================================//
+  //==========================================================================//
 
   //handle submit value setting ordo form input 2
   const handleSubmitOrdo2 = (e) => {
     e.preventDefault();
     for (let i = 0; i < 2; i++) {
       if (e.target[i].value === "") {
-        return alert("masukan harus di isi minimal 1");
+        Swal.fire({
+          icon: "error",
+          title: "masukan tidak boleh kosong!",
+        });
+        return;
       }
       if (e.target[i].value < 1) {
-        return alert("masukan harus di isi minimal 1");
+        Swal.fire({
+          icon: "error",
+          title: "masukan harus di isi, minimal 1",
+        });
+        return;
       }
       if (isNaN(e.target[i].value)) {
-        return alert("masukan berupa angka");
+        Swal.fire({
+          icon: "error",
+          title: "masukan harus angka",
+        });
+        return;
       }
     }
     setRow2(e.target[0].value);
@@ -146,11 +177,17 @@ const MatrixReduction = () => {
     const ordo2 = arrInput2.length * arrRow2.length;
     for (let i = 0; i < ordo2; i++) {
       if (e.target[i].value === "") {
-        alert("masukan tidak boleh kosong");
+        Swal.fire({
+          icon: "error",
+          title: "masukan tidak boleh kosong!",
+        });
         return;
       }
       if (isNaN(e.target[i].value)) {
-        alert("masukan harus angka");
+        Swal.fire({
+          icon: "error",
+          title: "masukan harus angka",
+        });
         return;
       }
       inputResult2.push(e.target[i].value);
@@ -161,14 +198,13 @@ const MatrixReduction = () => {
     setMatrixB(arr2DInputResults2);
   };
 
-  //------------------------------------------------------------------------//
-  //---------------------------REDUCTION FUNCTION---------------------------//
-  //------------------------------------------------------------------------//
+  // REDUCTION FUNCTION
   const { results, subFunc } = useSubtraction();
 
   return (
     <MainPage
       title="MATRIX SUBTRACTION"
+      operation={"A - B ="}
       settingInput1={settingInput1}
       handleSubmit1={handleSubmit1}
       arrInput1={arrInput1}
@@ -177,7 +213,6 @@ const MatrixReduction = () => {
       arrInput2={arrInput2}
       funcLogic={() => subFunc(matrixA, matrixB)}
       results={results}
-      operation={"A - B ="}
     />
   );
 };
