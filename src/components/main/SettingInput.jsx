@@ -27,7 +27,7 @@ const SettingInput = ({ handleSubmitOrdo, rowInput, colInput }) => {
         </section>
         <button
           type="submit"
-          className="px-2 text-white bg-blue-900 rounded-sm"
+          className="h-full px-2 text-white bg-blue-900 rounded-md btn hover:bg-blue-800"
         >
           save
         </button>

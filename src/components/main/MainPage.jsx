@@ -7,6 +7,7 @@ import CardMatrix from "./CardMatrix";
 
 const MainPage = ({
   title,
+  operation,
   settingInput1,
   handleSubmit1,
   arrInput1,
@@ -38,7 +39,7 @@ const MainPage = ({
           onClick={() => {
             funcLogic();
           }}
-          className="bg-blue-900 px-4 py-0.5 rounded-md active:bg-slate-800 text-3xl text-white border border-blue-700 w-full text-center my-2"
+          className="btn bg-blue-900 hover:bg-blue-800 px-4 py-0.5 rounded-md cursor-pointer active:bg-slate-800 text-3xl text-white border border-blue-700 w-full text-center my-2"
         >
           RESULT
         </div>
@@ -51,7 +52,7 @@ const MainPage = ({
             </button>
           </div> */}
           <div className="flex items-center justify-center gap-5 px-1 my-3">
-            <OperationTitleResult title="A + B =" />
+            <OperationTitleResult title={operation} />
             <MappingResult results={results} />
           </div>
         </div>
