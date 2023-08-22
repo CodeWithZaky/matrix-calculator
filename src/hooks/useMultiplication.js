@@ -1,14 +1,23 @@
 import useResult from "./useResult";
+import Swal from "sweetalert2";
 
 const useMultiplication = () => {
   const [results, setResults] = useResult();
 
   const mulFunc = (a, b) => {
     if (a[0].length !== b.length) {
-      return alert("Dimensi matriks tidak sesuai");
+      Swal.fire({
+        icon: "error",
+        title: "Dimensi matriks tidak sesuai",
+      });
+      return;
     }
     if (!isInputValid(a) || !isInputValid(b)) {
-      return alert("Input harus berupa angka");
+      Swal.fire({
+        icon: "error",
+        title: "Input harus berupa angka!",
+      });
+      return;
     }
     function isInputValid(matrix) {
       for (let i = 0; i < matrix.length; i++) {

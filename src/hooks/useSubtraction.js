@@ -1,14 +1,23 @@
 import useResult from "./useResult";
+import Swal from "sweetalert2";
 
 const useSubtraction = () => {
   const [results, setResults] = useResult();
 
   const subFunc = (a, b) => {
     if (a.length !== b.length) {
-      return alert("pada operasi penambahan dan pengurangan ordo harus sama");
+      Swal.fire({
+        icon: "error",
+        title: "pada operasi pengurangan ordo harus sama!",
+      });
+      return;
     }
     if (a[0].length !== b[0].length) {
-      return alert("pada operasi penambahan dan pengurangan ordo harus sama");
+      Swal.fire({
+        icon: "error",
+        title: "pada operasi pengurangan ordo harus sama!",
+      });
+      return;
     }
 
     const result = [];
@@ -17,7 +26,11 @@ const useSubtraction = () => {
       const row = [];
       for (let j = 0; j < a[0].length; j++) {
         if (isNaN(a[i][j]) || isNaN(b[i][j])) {
-          return alert("Input harus berupa angka");
+          Swal.fire({
+            icon: "error",
+            title: "Input harus berupa angka!",
+          });
+          return;
         }
         row.push(parseInt(a[i][j]) - parseInt(b[i][j]));
       }
