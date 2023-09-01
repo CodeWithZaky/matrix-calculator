@@ -1,3 +1,5 @@
+import React from "react";
+
 const FormContainer = ({ tittle, settingInput, handleSubmit, arrInput }) => {
   return (
     <section className="border border-blue-800 rounded bg-slate-200">
