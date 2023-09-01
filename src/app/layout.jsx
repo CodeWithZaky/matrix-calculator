@@ -1,7 +1,7 @@
 import "../../node_modules/tailwindcss/tailwind.css";
-import { Quantico } from "@next/font/google";
+import { Orbitron } from "@next/font/google";
 
-const font = Quantico({
+const font = Orbitron({
   weight: "400",
   subsets: ["latin"],
 });
@@ -14,6 +14,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
-// Chakra_Petch
-// Quantico
