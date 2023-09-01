@@ -8,7 +8,7 @@ const MappingResult = (props) => {
           {m.map((x, y) => (
             <div
               key={y}
-              className=" w-[50px] flex justify-center items-center border border-black rounded-lg text-xl font-semibold bg-white"
+              className=" w-[50px] flex justify-center items-center border border-black rounded-lg text-xl font-semibold bg-slate-50"
             >
               {x}
             </div>

@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
-import MainPage from "@/src/components/main/MainPage";
-import useSubtraction from "@/src/hooks/useSubtraction";
-import SettingInput from "@/src/components/main/SettingInput";
 import Swal from "sweetalert2";
+import MainPage from "@/components/main/MainPage";
+import SettingInput from "@/components/main/SettingInput";
+import Input from "@/components/main/Input";
+import useSubtraction from "@/hooks/useSubtraction";
 
 const MatrixReduction = () => {
   const [matrixA, setMatrixA] = useState([
@@ -33,21 +34,21 @@ const MatrixReduction = () => {
       if (e.target[i].value === "") {
         Swal.fire({
           icon: "error",
-          title: "masukan tidak boleh kosong!",
+          title: "input cannot be empty!",
         });
         return;
       }
       if (e.target[i].value < 1) {
         Swal.fire({
           icon: "error",
-          title: "masukan harus di isi, minimal 1",
+          title: "Entries must be filled in, at least 1",
         });
         return;
       }
       if (isNaN(e.target[i].value)) {
         Swal.fire({
           icon: "error",
-          title: "masukan harus angka",
+          title: "input must be a number",
         });
         return;
       }
@@ -65,16 +66,11 @@ const MatrixReduction = () => {
   );
   //pembuat wadah matrix dari value ordo input 1
   const arrRow1 = [];
-  const arrInput1 = [];
   for (let i = 0; i < col1; i++) {
-    arrRow1.push(
-      <input
-        key={i}
-        defaultValue={0}
-        className="border border-black w-[50px] rounded-lg text-center text-xl font-semibold"
-      />
-    );
+    arrRow1.push(<Input key={i} defaultValue={0} />);
   }
+
+  const arrInput1 = [];
   for (let i = 0; i < row1; i++) {
     arrInput1.push(
       <div key={i} className="flex px-1">
@@ -91,14 +87,14 @@ const MatrixReduction = () => {
       if (e.target[i].value === "") {
         Swal.fire({
           icon: "error",
-          title: "masukan tidak boleh kosong!",
+          title: "input cannot be empty!",
         });
         return;
       }
       if (isNaN(e.target[i].value)) {
         Swal.fire({
           icon: "error",
-          title: "masukan harus angka",
+          title: "input must be a number",
         });
         return;
       }
@@ -121,21 +117,21 @@ const MatrixReduction = () => {
       if (e.target[i].value === "") {
         Swal.fire({
           icon: "error",
-          title: "masukan tidak boleh kosong!",
+          title: "input cannot be empty!",
         });
         return;
       }
       if (e.target[i].value < 1) {
         Swal.fire({
           icon: "error",
-          title: "masukan harus di isi, minimal 1",
+          title: "Entries must be filled in, at least 1",
         });
         return;
       }
       if (isNaN(e.target[i].value)) {
         Swal.fire({
           icon: "error",
-          title: "masukan harus angka",
+          title: "input must be a number",
         });
         return;
       }
@@ -153,16 +149,11 @@ const MatrixReduction = () => {
   );
   //pembuat wadah matrix dari value ordo input 2
   const arrRow2 = [];
-  const arrInput2 = [];
   for (let i = 0; i < col2; i++) {
-    arrRow2.push(
-      <input
-        defaultValue={0}
-        key={i}
-        className="border border-black w-[50px] rounded-lg text-center text-xl font-semibold"
-      />
-    );
+    arrRow2.push(<Input defaultValue={0} key={i} />);
   }
+
+  const arrInput2 = [];
   for (let i = 0; i < row2; i++) {
     arrInput2.push(
       <div key={i} className="flex px-1">
@@ -179,14 +170,14 @@ const MatrixReduction = () => {
       if (e.target[i].value === "") {
         Swal.fire({
           icon: "error",
-          title: "masukan tidak boleh kosong!",
+          title: "input cannot be empty!",
         });
         return;
       }
       if (isNaN(e.target[i].value)) {
         Swal.fire({
           icon: "error",
-          title: "masukan harus angka",
+          title: "input must be a number",
         });
         return;
       }
