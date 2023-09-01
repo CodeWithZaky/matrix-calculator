@@ -1,5 +1,3 @@
-import React from "react";
-
 const CardMatrix = ({ title, settingInput, handleSubmit, arrInput }) => {
   return (
     <div className="border border-blue-800 rounded bg-slate-200">
