@@ -9,11 +9,21 @@ const SettingInput = ({ handleSubmitOrdo, rowInput, colInput }) => {
       <div className="flex gap-3 border rounded border-slate-400">
         <section className="flex flex-col ml-0.5 my-0.5">
           <div>row</div>
-          <Input defaultValue={rowInput} />
+          <input
+            type="number"
+            min={0}
+            defaultValue={rowInput}
+            className="border w-[60px] border-slate-700 rounded text-center"
+          />
         </section>
         <section className="flex flex-col my-0.5">
           <div>colomn</div>
-          <Input defaultValue={colInput} />
+          <input
+            type="number"
+            min={0}
+            defaultValue={colInput}
+            className="border w-[60px] border-slate-700 rounded text-center"
+          />
         </section>
         <button
           type="submit"
@@ -27,12 +37,3 @@ const SettingInput = ({ handleSubmitOrdo, rowInput, colInput }) => {
 };
 
 export default SettingInput;
-
-const Input = ({ defaultValue }) => (
-  <input
-    type="number"
-    min={0}
-    defaultValue={defaultValue}
-    className="border w-[60px] border-slate-700 bg-slate-50 rounded text-center"
-  />
-);
