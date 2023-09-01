@@ -1,10 +1,9 @@
 "use client";
 import { useState } from "react";
+import MainPage from "@/src/components/main/MainPage";
+import useAddition from "@/src/hooks/useAddition";
+import SettingInput from "@/src/components/main/SettingInput";
 import Swal from "sweetalert2";
-import MainPage from "@/components/main/MainPage";
-import SettingInput from "@/components/main/SettingInput";
-import Input from "@/components/main/Input";
-import useAddition from "@/hooks/useAddition";
 
 const MatrixAddition = () => {
   const [matrixA, setMatrixA] = useState([
@@ -34,21 +33,21 @@ const MatrixAddition = () => {
       if (e.target[i].value === "") {
         Swal.fire({
           icon: "error",
-          title: "input cannot be empty!",
+          title: "masukan tidak boleh kosong!",
         });
         return;
       }
       if (e.target[i].value < 1) {
         Swal.fire({
           icon: "error",
-          title: "Entries must be filled in, at least 1",
+          title: "masukan harus di isi, minimal 1",
         });
         return;
       }
       if (isNaN(e.target[i].value)) {
         Swal.fire({
           icon: "error",
-          title: "input must be a number",
+          title: "masukan harus angka",
         });
         return;
       }
@@ -65,16 +64,21 @@ const MatrixAddition = () => {
     />
   );
   //pembuat wadah matrix dari value ordo input 1
-  const ordoCol1 = [];
+  const arrRow1 = [];
+  const arrInput1 = [];
   for (let i = 0; i < col1; i++) {
-    ordoCol1.push(<Input key={i} defaultValue={0} />);
+    arrRow1.push(
+      <input
+        key={i}
+        defaultValue={0}
+        className="border border-black w-[50px] rounded-lg text-center text-xl font-semibold"
+      />
+    );
   }
-
-  const ordoRow1 = [];
   for (let i = 0; i < row1; i++) {
-    ordoRow1.push(
+    arrInput1.push(
       <div key={i} className="flex px-1">
-        {ordoCol1}
+        {arrRow1}
       </div>
     );
   }
@@ -82,19 +86,19 @@ const MatrixAddition = () => {
   const handleSubmit1 = (e) => {
     e.preventDefault();
     const inputResult1 = [];
-    const ordo1 = ordoRow1.length * ordoCol1.length;
+    const ordo1 = arrInput1.length * arrRow1.length;
     for (let i = 0; i < ordo1; i++) {
       if (e.target[i].value === "") {
         Swal.fire({
           icon: "error",
-          title: "input cannot be empty!",
+          title: "masukan tidak boleh kosong!",
         });
         return;
       }
       if (isNaN(e.target[i].value)) {
         Swal.fire({
           icon: "error",
-          title: "input must be a number",
+          title: "masukan harus angka",
         });
         return;
       }
@@ -117,21 +121,21 @@ const MatrixAddition = () => {
       if (e.target[i].value === "") {
         Swal.fire({
           icon: "error",
-          title: "input cannot be empty!",
+          title: "masukan tidak boleh kosong!",
         });
         return;
       }
       if (e.target[i].value < 1) {
         Swal.fire({
           icon: "error",
-          title: "Entries must be filled in, at least 1",
+          title: "masukan harus di isi, minimal 1",
         });
         return;
       }
       if (isNaN(e.target[i].value)) {
         Swal.fire({
           icon: "error",
-          title: "input must be a number",
+          title: "masukan harus angka",
         });
         return;
       }
@@ -149,11 +153,16 @@ const MatrixAddition = () => {
   );
   //pembuat wadah matrix dari value ordo input 2
   const arrRow2 = [];
-  for (let i = 0; i < col2; i++) {
-    arrRow2.push(<Input defaultValue={0} key={i} />);
-  }
-
   const arrInput2 = [];
+  for (let i = 0; i < col2; i++) {
+    arrRow2.push(
+      <input
+        defaultValue={0}
+        key={i}
+        className="border border-black w-[50px] rounded-lg text-center text-xl font-semibold"
+      />
+    );
+  }
   for (let i = 0; i < row2; i++) {
     arrInput2.push(
       <div key={i} className="flex px-1">
@@ -170,14 +179,14 @@ const MatrixAddition = () => {
       if (e.target[i].value === "") {
         Swal.fire({
           icon: "error",
-          title: "input cannot be empty!",
+          title: "masukan tidak boleh kosong!",
         });
         return;
       }
       if (isNaN(e.target[i].value)) {
         Swal.fire({
           icon: "error",
-          title: "input must be a number",
+          title: "masukan harus angka",
         });
         return;
       }
@@ -197,7 +206,7 @@ const MatrixAddition = () => {
       title="MATRIX ADDITION"
       settingInput1={settingInput1}
       handleSubmit1={handleSubmit1}
-      arrInput1={ordoRow1}
+      arrInput1={arrInput1}
       settingInput2={settingInput2}
       handleSubmit2={handleSubmit2}
       arrInput2={arrInput2}
