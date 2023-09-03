@@ -1,9 +1,9 @@
 import React from "react";
 
-const SettingInput = ({ handleSubmitOrdo, rowInput, colInput }) => {
+const SettingOrdoComponent = ({ handleSettingOrdo, row, col }) => {
   return (
     <form
-      onSubmit={handleSubmitOrdo}
+      onSubmit={handleSettingOrdo}
       className="flex justify-start gap-4 px-2 py-1"
     >
       <div className="flex gap-3 border rounded border-slate-400">
@@ -12,7 +12,7 @@ const SettingInput = ({ handleSubmitOrdo, rowInput, colInput }) => {
           <input
             type="number"
             min={0}
-            defaultValue={rowInput}
+            defaultValue={row}
             className="border w-[60px] border-slate-700 rounded text-center"
           />
         </section>
@@ -21,7 +21,7 @@ const SettingInput = ({ handleSubmitOrdo, rowInput, colInput }) => {
           <input
             type="number"
             min={0}
-            defaultValue={colInput}
+            defaultValue={col}
             className="border w-[60px] border-slate-700 rounded text-center"
           />
         </section>
@@ -36,4 +36,4 @@ const SettingInput = ({ handleSubmitOrdo, rowInput, colInput }) => {
   );
 };
 
-export default SettingInput;
+export default SettingOrdoComponent;
