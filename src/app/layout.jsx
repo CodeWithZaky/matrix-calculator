@@ -9,7 +9,6 @@ const font = Orbitron({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${font.className}`}>
-      <head />
       <body className="bg-gray-300">{children}</body>
     </html>
   );
