@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-function useMatrixForm(row, col) {
+function useSetMatrix(row, col) {
   const [matrix, setMatrix] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSetMatrix = (e) => {
     e.preventDefault();
 
     const inputValues = Array.from(
@@ -30,8 +30,8 @@ function useMatrixForm(row, col) {
 
   return {
     matrix,
-    handleSubmit,
+    handleSetMatrix,
   };
 }
 
-export default useMatrixForm;
+export default useSetMatrix;

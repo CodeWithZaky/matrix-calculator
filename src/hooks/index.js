@@ -3,7 +3,7 @@ import useMultiplication from "./useMultiplication";
 import useSubtraction from "./useSubtraction";
 import useSettingOrdo from "./useSettingOrdo";
 import useCreateOrdo from "./useCreateOrdo";
-import useMatrixForm from "./useMatrixForm";
+import useSetMatrix from "./useSetMatrix";
 import useResult from "./useResult";
 
 export {
@@ -12,6 +12,6 @@ export {
   useMultiplication,
   useSubtraction,
   useCreateOrdo,
-  useMatrixForm,
+  useSetMatrix,
   useResult,
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import HeaderLink from "@/src/components/header/HeaderLink";
-import TitleMatrix from "@/src/components/header/TitleMatrix";
+import HeaderLink from "@/src/components/molecules/header/HeaderLink";
+import TitleMatrix from "@/src/components/molecules/header/TitleMatrix";
 
 const HeaderPage = ({ title }) => {
   return (

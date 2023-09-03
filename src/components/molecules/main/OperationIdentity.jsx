@@ -1,7 +1,7 @@
 import React from "react";
 
-const DefinitionResult = ({ title }) => {
+const OperationIdentity = ({ title }) => {
   return <p className="text-xl font-medium md:text-3xl">{title}</p>;
 };
 
-export default DefinitionResult;
+export default OperationIdentity;
