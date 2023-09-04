@@ -27,12 +27,12 @@ const NavHome = () => {
           <Link
             href={e.href}
             key={i}
-            className="flex flex-col justify-center items-center border-2 border-blue-800 bg-blue-100 rounded-lg text-center py-3 w-full md:w-[200px] lg:w-[300px]"
+            className="flex flex-col justify-center items-center border-2 border-blue-100 bg-blue-900 rounded-lg text-center py-3 w-full md:w-[200px] lg:w-[300px]"
           >
-            <h1 className="text-sm font-bold ld:text-lg whitespace-nowrap">
+            <h1 className="text-sm font-bold ld:text-lg whitespace-nowrap text-slate-50">
               {e.h1}
             </h1>
-            <p className="text-4xl font-bold">{e.p}</p>
+            <p className="text-4xl font-bold text-slate-50">{e.p}</p>
           </Link>
         );
       })}
