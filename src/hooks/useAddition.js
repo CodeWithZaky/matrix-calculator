@@ -2,7 +2,7 @@ import useResult from "./useResult";
 import Swal from "sweetalert2";
 
 const useAddition = () => {
-  const [results, setResults] = useResult();
+  const [addResult, setAddResults] = useResult();
 
   const addFunc = (a, b) => {
     if (a.length !== b.length) {
@@ -36,9 +36,9 @@ const useAddition = () => {
       }
       result.push(row);
     }
-    setResults(result);
+    setAddResults(result);
   };
 
-  return { results, addFunc };
+  return { addResult, addFunc };
 };
 export default useAddition;

@@ -1,5 +1,6 @@
 import "../../node_modules/tailwindcss/tailwind.css";
 import { Orbitron } from "@next/font/google";
+import HeaderFooterWrap from "../components/organism/HeaderFooterWrap";
 
 const font = Orbitron({
   weight: "400",
@@ -9,7 +10,9 @@ const font = Orbitron({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${font.className}`}>
-      <body className="bg-gray-300">{children}</body>
+      <body className="flex flex-col items-center justify-between min-h-screen gap-3 bg-gray-300 min-w-screen">
+        <HeaderFooterWrap>{children}</HeaderFooterWrap>
+      </body>
     </html>
   );
 }
