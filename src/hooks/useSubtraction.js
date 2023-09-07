@@ -2,7 +2,7 @@ import useResult from "./useResult";
 import Swal from "sweetalert2";
 
 const useSubtraction = () => {
-  const [results, setResults] = useResult();
+  const [subResult, setSubResults] = useResult();
 
   const subFunc = (a, b) => {
     if (a.length !== b.length) {
@@ -36,10 +36,10 @@ const useSubtraction = () => {
       }
       result.push(row);
     }
-    setResults(result);
+    setSubResults(result);
   };
 
-  return { results, subFunc };
+  return { subResult, subFunc };
 };
 
 export default useSubtraction;

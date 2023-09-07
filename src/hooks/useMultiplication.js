@@ -2,7 +2,7 @@ import useResult from "./useResult";
 import Swal from "sweetalert2";
 
 const useMultiplication = () => {
-  const [results, setResults] = useResult();
+  const [mulResult, setMulResults] = useResult();
 
   const mulFunc = (a, b) => {
     if (a[0].length !== b.length) {
@@ -43,10 +43,10 @@ const useMultiplication = () => {
         }
       }
     }
-    setResults(resultMatrix);
+    setMulResults(resultMatrix);
   };
 
-  return { results, mulFunc };
+  return { mulResult, mulFunc };
 };
 
 export default useMultiplication;
