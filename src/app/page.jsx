@@ -1,4 +1,4 @@
-import NavHome from "@/src/components/organism/home/NavHome";
+import NavHome from "@/src/components/organism/NavHome";
 
 export default function Home() {
   return (
