@@ -1,5 +1,4 @@
 "use client";
-import MainPage from "@/src/components/organism/MainPage";
 import CardMatrix from "@/src/components/molecules/main/CardMatrix";
 import ResultButton from "@/src/components/atoms/ResultButton";
 import ResultContainer from "@/src/components/molecules/main/ResultContainer";
@@ -38,41 +37,37 @@ const MatrixAddition = () => {
   );
 
   // ADDITIONAL FUNCTION
-  const { results: addResult, addFunc } = useAddition();
+  const { addResult, addFunc } = useAddition();
 
   return (
-    <MainPage>
-      <MainPage.Header title="MATRIX ADDITION" />
-      <MainPage.Body>
-        <div className="flex flex-col w-full gap-3 sm:flex-row">
-          <CardMatrix>
-            <CardMatrix.Header title={"MATRIX A"} />
-            <CardMatrix.SettingOrdo
-              handleSettingOrdo={handleSettingOrdo1}
-              row={row1}
-              col={col1}
-            />
-            <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix1}>
-              {ordoElements1}
-            </CardMatrix.SetMatrix>
-          </CardMatrix>
-          <CardMatrix>
-            <CardMatrix.Header title={"MATRIX B"} />
-            <CardMatrix.SettingOrdo
-              handleSettingOrdo={handleSettingOrdo2}
-              row={row2}
-              col={col2}
-            />
-            <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix2}>
-              {ordoElements2}
-            </CardMatrix.SetMatrix>
-          </CardMatrix>
-        </div>
-        <ResultButton funcLogic={() => addFunc(matrixA, matrixB)} />
-        <ResultContainer operationIdentity={"A + B ="} results={addResult} />
-      </MainPage.Body>
-      <MainPage.Footer />
-    </MainPage>
+    <section className="flex flex-col items-center justify-center w-auto h-auto">
+      <div className="flex flex-col w-full gap-3 sm:flex-row">
+        <CardMatrix>
+          <CardMatrix.Header title={"MATRIX A"} />
+          <CardMatrix.SettingOrdo
+            handleSettingOrdo={handleSettingOrdo1}
+            row={row1}
+            col={col1}
+          />
+          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix1}>
+            {ordoElements1}
+          </CardMatrix.SetMatrix>
+        </CardMatrix>
+        <CardMatrix>
+          <CardMatrix.Header title={"MATRIX B"} />
+          <CardMatrix.SettingOrdo
+            handleSettingOrdo={handleSettingOrdo2}
+            row={row2}
+            col={col2}
+          />
+          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix2}>
+            {ordoElements2}
+          </CardMatrix.SetMatrix>
+        </CardMatrix>
+      </div>
+      <ResultButton funcLogic={() => addFunc(matrixA, matrixB)} />
+      <ResultContainer operationIdentity={"A + B ="} results={addResult} />
+    </section>
   );
 };
 
