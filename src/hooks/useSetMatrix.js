@@ -2,7 +2,11 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 function useSetMatrix(row, col) {
-  const [matrix, setMatrix] = useState([]);
+  const [matrix, setMatrix] = useState([
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ]);
 
   const handleSetMatrix = (e) => {
     e.preventDefault();
