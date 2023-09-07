@@ -1,3 +1,4 @@
+import SubmitButtton from "../../atoms/SubmitButtton";
 import SettingOrdoComponent from "./SettingOrdoComponent";
 
 const CardMatrix = ({ children }) => {
@@ -30,12 +31,7 @@ const SetMatrix = ({ handleSetMatrix, children }) => {
   return (
     <form onSubmit={handleSetMatrix} className="flex-col">
       {children}
-      <button
-        type="submit"
-        className="btn w-full px-3 rounded-md bg-blue-900 hover:bg-blue-800 text-white active:bg-slate-400 py-0.5 mt-4"
-      >
-        submit
-      </button>
+      <SubmitButtton label="submit" layout="w-full px-3 py-0.5 mt-4" />
     </form>
   );
 };
