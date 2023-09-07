@@ -1,4 +1,3 @@
-import OperationIdentity from "./OperationIdentity";
 import MappingResult from "./MappingResult";
 
 const ResultContainer = ({ operationIdentity, results }) => {
@@ -13,3 +12,7 @@ const ResultContainer = ({ operationIdentity, results }) => {
 };
 
 export default ResultContainer;
+
+const OperationIdentity = ({ operationIdentity }) => {
+  return <p className="text-xl font-medium md:text-3xl">{operationIdentity}</p>;
+};
