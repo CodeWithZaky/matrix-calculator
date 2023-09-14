@@ -1,7 +1,7 @@
 "use client";
-import CardMatrix from "@/src/components/molecules/main/CardMatrix";
-import ResultButton from "@/src/components/atoms/ResultButton";
-import ResultContainer from "@/src/components/molecules/main/ResultContainer";
+import CardMatrix from "@/src/components/fragments/CardMatrix";
+import ResultButton from "@/src/components/elements/ResultButton";
+import ResultContainer from "@/src/components/fragments/ResultContainer";
 import {
   useSettingOrdo,
   useCreateOrdo,
@@ -43,7 +43,7 @@ const MatrixAddition = () => {
     <section className="flex flex-col items-center justify-center w-auto h-auto">
       <div className="flex flex-col w-full gap-3 sm:flex-row">
         <CardMatrix>
-          <CardMatrix.Header title={"MATRIX A"} />
+          <CardMatrix.Header>MATRIX A</CardMatrix.Header>
           <CardMatrix.SettingOrdo
             handleSettingOrdo={handleSettingOrdo1}
             row={row1}
@@ -54,7 +54,7 @@ const MatrixAddition = () => {
           </CardMatrix.SetMatrix>
         </CardMatrix>
         <CardMatrix>
-          <CardMatrix.Header title={"MATRIX B"} />
+          <CardMatrix.Header>MATRIX B</CardMatrix.Header>
           <CardMatrix.SettingOrdo
             handleSettingOrdo={handleSettingOrdo2}
             row={row2}
