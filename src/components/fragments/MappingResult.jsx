@@ -1,5 +1,3 @@
-import React from "react";
-
 const MappingResult = (props) => {
   return (
     <div className="flex flex-col items-start">

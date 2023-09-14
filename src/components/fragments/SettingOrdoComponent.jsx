@@ -1,4 +1,4 @@
-import SubmitButtton from "../../atoms/SubmitButtton";
+import SubmitButtton from "../elements/SubmitButtton";
 
 const SettingOrdoComponent = ({ handleSettingOrdo, row, col }) => {
   return (
@@ -25,12 +25,6 @@ const SettingOrdoComponent = ({ handleSettingOrdo, row, col }) => {
             className="border w-[60px] border-slate-700 rounded text-center"
           />
         </section>
-        {/* <button
-          type="submit"
-          className="h-full px-2 text-white bg-blue-900 rounded-md btn hover:bg-blue-800"
-        >
-          save
-        </button> */}
         <SubmitButtton label="save" layout="h-full px-2" />
       </div>
     </form>
