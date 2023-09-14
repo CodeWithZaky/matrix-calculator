@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "../components/atoms/Input";
+import Input from "../components/elements/Input";
 
 function useCreateOrdo(row, col) {
   const grid = Array.from({ length: row }, (_, rowIndex) => (
