@@ -1,5 +1,9 @@
-import NavHome from "@/src/components/organism/NavHome";
+import NavHome from "@/src/components/layouts/NavHome";
 
+export const metadata = {
+  title: "Matrix Calculator - Home",
+  description: "...",
+};
 export default function Home() {
   return (
     <main className="container flex flex-col items-center justify-center min-w-full min-h-screen mx-auto font-bold text-blue-900">
