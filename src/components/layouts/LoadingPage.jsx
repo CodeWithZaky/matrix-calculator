@@ -1,13 +1,12 @@
-"use client";
-const loading = () => {
+const LoadingPage = () => {
   return (
-    <div className="flex flex-row items-center justify-center min-h-screen text-5xl font-semibold text-center min-w-screen">
+    <section className="flex flex-row items-end justify-center w-auto h-auto text-5xl font-semibold text-center">
       <p>Loading</p>
       <span className="loading loading-ball loading-md" />
       <span className="loading loading-ball loading-md" />
       <span className="loading loading-ball loading-md" />
-    </div>
+    </section>
   );
 };
 
-export default loading;
+export default LoadingPage;

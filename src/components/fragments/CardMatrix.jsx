@@ -1,4 +1,4 @@
-import SubmitButtton from "../../atoms/SubmitButtton";
+import SubmitButtton from "../elements/SubmitButtton";
 import SettingOrdoComponent from "./SettingOrdoComponent";
 
 const CardMatrix = ({ children }) => {
@@ -9,9 +9,11 @@ const CardMatrix = ({ children }) => {
   );
 };
 
-const Header = ({ title }) => {
+const Header = ({ children }) => {
   return (
-    <p className="px-5 text-3xl text-center text-white bg-slate-800">{title}</p>
+    <p className="px-5 text-3xl text-center text-white bg-slate-800">
+      {children}
+    </p>
   );
 };
 

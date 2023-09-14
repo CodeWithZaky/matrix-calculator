@@ -1,4 +1,4 @@
-import LoadingPage from "@/src/components/organism/LoadingPage";
+import LoadingPage from "@/src/components/layouts/LoadingPage";
 
 const loading = () => {
   return <LoadingPage />;

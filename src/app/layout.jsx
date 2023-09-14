@@ -1,6 +1,6 @@
 import "../../node_modules/tailwindcss/tailwind.css";
 import { Orbitron } from "@next/font/google";
-import HeaderFooterWrap from "../components/organism/HeaderFooterWrap";
+import HeaderFooterWrap from "../components/layouts/HeaderFooterWrap";
 
 const font = Orbitron({
   weight: "400",

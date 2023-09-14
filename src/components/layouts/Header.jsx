@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import HeaderLink from "@/src/components/molecules/header/HeaderLink";
+import HeaderLink from "@/src/components/fragments/HeaderLink";
 
 const HeaderPage = ({ title }) => {
   return (
