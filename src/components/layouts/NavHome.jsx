@@ -27,7 +27,7 @@ const NavHome = () => {
           <Link
             href={item.href}
             key={index}
-            className="flex flex-col justify-center items-center border-2 border-blue-100 bg-blue-900 rounded-lg text-center py-3 w-full md:w-[200px] lg:w-[300px]"
+            className="flex flex-col justify-center items-center border-2 border-slate-50 bg-blue-900/90 hover:bg-blue-900 rounded-lg text-center py-3 w-full md:w-[200px] lg:w-[300px] shadow-md hover:shadow-lg shadow-slate-500 hover:shadow-slate-500"
           >
             <h1 className="text-sm font-bold ld:text-lg whitespace-nowrap text-slate-50">
               {item.label}
