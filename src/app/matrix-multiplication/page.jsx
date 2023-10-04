@@ -48,7 +48,7 @@ const MatrixMultiplication = () => {
             row={row1}
             col={col1}
           />
-          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix1}>
+          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix1} title="A">
             {ordoElements1}
           </CardMatrix.SetMatrix>
         </CardMatrix>
@@ -59,12 +59,15 @@ const MatrixMultiplication = () => {
             row={row2}
             col={col2}
           />
-          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix2}>
+          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix2} title="B">
             {ordoElements2}
           </CardMatrix.SetMatrix>
         </CardMatrix>
       </div>
-      <ResultButton funcLogic={() => mulFunc(matrixA, matrixB)} />
+      <ResultButton
+        funcLogic={() => mulFunc(matrixA, matrixB)}
+        operationIdentity={"A x B"}
+      />
       <ResultContainer operationIdentity={"A x B ="} results={mulResult} />
     </section>
   );
