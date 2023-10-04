@@ -48,8 +48,12 @@ const MatrixAddition = () => {
             handleSettingOrdo={handleSettingOrdo1}
             row={row1}
             col={col1}
+            title={`Matrix A's dimensions have been created`}
           />
-          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix1} title="A">
+          <CardMatrix.SetMatrix
+            handleSetMatrix={handleSetMatrix1}
+            title="Matrix A submitted"
+          >
             {ordoElements1}
           </CardMatrix.SetMatrix>
         </CardMatrix>
@@ -59,8 +63,12 @@ const MatrixAddition = () => {
             handleSettingOrdo={handleSettingOrdo2}
             row={row2}
             col={col2}
+            title={`Matrix B's dimensions have been created.`}
           />
-          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix2} title="B">
+          <CardMatrix.SetMatrix
+            handleSetMatrix={handleSetMatrix2}
+            title="Matrix B submitted"
+          >
             {ordoElements2}
           </CardMatrix.SetMatrix>
         </CardMatrix>
