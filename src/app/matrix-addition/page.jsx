@@ -49,7 +49,7 @@ const MatrixAddition = () => {
             row={row1}
             col={col1}
           />
-          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix1}>
+          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix1} title="A">
             {ordoElements1}
           </CardMatrix.SetMatrix>
         </CardMatrix>
@@ -60,12 +60,15 @@ const MatrixAddition = () => {
             row={row2}
             col={col2}
           />
-          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix2}>
+          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix2} title="B">
             {ordoElements2}
           </CardMatrix.SetMatrix>
         </CardMatrix>
       </div>
-      <ResultButton funcLogic={() => addFunc(matrixA, matrixB)} />
+      <ResultButton
+        funcLogic={() => addFunc(matrixA, matrixB)}
+        operationIdentity={"A + B"}
+      />
       <ResultContainer operationIdentity={"A + B ="} results={addResult} />
     </section>
   );
