@@ -29,11 +29,15 @@ const SettingOrdo = ({ handleSettingOrdo, row, col }) => {
   );
 };
 
-const SetMatrix = ({ handleSetMatrix, children }) => {
+const SetMatrix = ({ handleSetMatrix, title, children }) => {
   return (
     <form onSubmit={handleSetMatrix} className="flex-col">
       {children}
-      <SubmitButtton label="submit" layout="w-full px-3 py-0.5 mt-4" />
+      <SubmitButtton
+        label="submit"
+        title={title}
+        layout="w-full px-3 py-0.5 mt-4"
+      />
     </form>
   );
 };
