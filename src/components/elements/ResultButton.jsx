@@ -1,8 +1,13 @@
-const ResultButton = ({ funcLogic }) => {
+import { toast } from "sonner";
+
+const ResultButton = ({ funcLogic, operationIdentity }) => {
   return (
     <button
       onClick={() => {
         funcLogic();
+        toast.success(
+          `Matrix ${operationIdentity} has been successfully calculated`
+        );
       }}
       className="btn bg-blue-900 hover:bg-blue-800 px-4 py-0.5 rounded-md active:bg-slate-800 text-3xl text-white border border-blue-700 w-full text-center my-2"
     >
