@@ -17,13 +17,14 @@ const Header = ({ children }) => {
   );
 };
 
-const SettingOrdo = ({ handleSettingOrdo, row, col }) => {
+const SettingOrdo = ({ handleSettingOrdo, row, col, title }) => {
   return (
     <div className="mb-4">
       <SettingOrdoComponent
         handleSettingOrdo={handleSettingOrdo}
         row={row}
         col={col}
+        title={title}
       />
     </div>
   );

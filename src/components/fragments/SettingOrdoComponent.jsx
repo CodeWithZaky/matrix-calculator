@@ -1,6 +1,6 @@
 import SubmitButtton from "../elements/SubmitButtton";
 
-const SettingOrdoComponent = ({ handleSettingOrdo, row, col }) => {
+const SettingOrdoComponent = ({ handleSettingOrdo, row, col, title }) => {
   return (
     <form
       onSubmit={handleSettingOrdo}
@@ -25,7 +25,7 @@ const SettingOrdoComponent = ({ handleSettingOrdo, row, col }) => {
             className="border w-[60px] border-slate-700 rounded text-center"
           />
         </section>
-        <SubmitButtton label="save" layout="h-full px-2" />
+        <SubmitButtton label="save" title={title} layout="h-full px-2" />
       </div>
     </form>
   );
