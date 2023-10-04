@@ -48,7 +48,7 @@ const MatrixReduction = () => {
             row={row1}
             col={col1}
           />
-          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix1}>
+          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix1} title="A">
             {ordoElements1}
           </CardMatrix.SetMatrix>
         </CardMatrix>
@@ -59,12 +59,15 @@ const MatrixReduction = () => {
             row={row2}
             col={col2}
           />
-          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix2}>
+          <CardMatrix.SetMatrix handleSetMatrix={handleSetMatrix2} title="B">
             {ordoElements2}
           </CardMatrix.SetMatrix>
         </CardMatrix>
       </div>
-      <ResultButton funcLogic={() => subFunc(matrixA, matrixB)} />
+      <ResultButton
+        funcLogic={() => subFunc(matrixA, matrixB)}
+        operationIdentity={"A - B"}
+      />
       <ResultContainer operationIdentity={"A - B ="} results={subResult} />
     </section>
   );
