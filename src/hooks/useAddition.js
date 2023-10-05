@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import useResult from "./useResult";
 import Swal from "sweetalert2";
 
@@ -37,8 +38,8 @@ const useAddition = () => {
       result.push(row);
     }
     setAddResults(result);
+    toast.success(`Matrix A + B has been successfully calculated`);
   };
-
   return { addResult, addFunc };
 };
 export default useAddition;
