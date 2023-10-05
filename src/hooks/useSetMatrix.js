@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { toast } from "sonner";
 
 function useSetMatrix(row, col) {
   const [matrix, setMatrix] = useState([
@@ -8,7 +9,7 @@ function useSetMatrix(row, col) {
     [0, 0, 0],
   ]);
 
-  const handleSetMatrix = (e) => {
+  const handleSetMatrix = (e, title) => {
     e.preventDefault();
 
     const inputValues = Array.from(
@@ -30,6 +31,7 @@ function useSetMatrix(row, col) {
     );
 
     setMatrix(arr2DInputResults);
+    toast.success(`${title}`);
   };
 
   return {

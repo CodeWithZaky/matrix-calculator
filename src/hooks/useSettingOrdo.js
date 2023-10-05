@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import Swal from "sweetalert2";
 
 // Custom hook untuk validasi input ordo
@@ -6,7 +7,7 @@ function useSettingOrdo(initialRow = 3, initialCol = 3) {
   const [row, setRow] = useState(initialRow);
   const [col, setCol] = useState(initialCol);
 
-  const handleSettingOrdo = (e) => {
+  const handleSettingOrdo = (e, title) => {
     e.preventDefault();
 
     const [rowValue, colValue] = e.target;
@@ -23,6 +24,7 @@ function useSettingOrdo(initialRow = 3, initialCol = 3) {
 
     setRow(newRow);
     setCol(newCol);
+    toast.success(`${title}`);
   };
 
   return { row, col, handleSettingOrdo };
