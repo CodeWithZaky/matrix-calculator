@@ -49,6 +49,7 @@ const MatrixMultiplication = () => {
             }
             row={row1}
             col={col1}
+            title={`Matrix A's dimensions have been created`}
           />
           <CardMatrix.SetMatrix
             handleSetMatrix={(e) => handleSetMatrix1(e, "Matrix A submitted")}
