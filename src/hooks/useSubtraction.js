@@ -1,5 +1,6 @@
 import useResult from "./useResult";
 import Swal from "sweetalert2";
+import { toast } from "sonner";
 
 const useSubtraction = () => {
   const [subResult, setSubResults] = useResult();
@@ -37,6 +38,7 @@ const useSubtraction = () => {
       result.push(row);
     }
     setSubResults(result);
+    toast.success(`Matrix A - B has been successfully calculated`);
   };
 
   return { subResult, subFunc };

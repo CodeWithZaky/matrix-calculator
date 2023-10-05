@@ -1,5 +1,6 @@
 import useResult from "./useResult";
 import Swal from "sweetalert2";
+import { toast } from "sonner";
 
 const useMultiplication = () => {
   const [mulResult, setMulResults] = useResult();
@@ -19,6 +20,7 @@ const useMultiplication = () => {
       });
       return;
     }
+
     function isInputValid(matrix) {
       for (let i = 0; i < matrix.length; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
@@ -44,6 +46,7 @@ const useMultiplication = () => {
       }
     }
     setMulResults(resultMatrix);
+    toast.success(`Matrix A x B has been successfully calculated`);
   };
 
   return { mulResult, mulFunc };

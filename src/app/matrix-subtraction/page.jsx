@@ -44,14 +44,15 @@ const MatrixReduction = () => {
         <CardMatrix>
           <CardMatrix.Header>MATRIX A</CardMatrix.Header>
           <CardMatrix.SettingOrdo
-            handleSettingOrdo={handleSettingOrdo1}
+            handleSettingOrdo={(e) =>
+              handleSettingOrdo1(e, "Matrix A's dimensions have been created")
+            }
             row={row1}
             col={col1}
             title={`Matrix A's dimensions have been created`}
           />
           <CardMatrix.SetMatrix
-            handleSetMatrix={handleSetMatrix1}
-            title="Matrix A submitted"
+            handleSetMatrix={(e) => handleSetMatrix1(e, "Matrix A submitted")}
           >
             {ordoElements1}
           </CardMatrix.SetMatrix>
@@ -59,23 +60,21 @@ const MatrixReduction = () => {
         <CardMatrix>
           <CardMatrix.Header>MATRIX B</CardMatrix.Header>
           <CardMatrix.SettingOrdo
-            handleSettingOrdo={handleSettingOrdo2}
+            handleSettingOrdo={(e) =>
+              handleSettingOrdo2(e, "Matrix B's dimensions have been created")
+            }
             row={row2}
             col={col2}
-            title={`Matrix B's dimensions have been created`}
+            title={`Matrix B's dimensions have been created.`}
           />
           <CardMatrix.SetMatrix
-            handleSetMatrix={handleSetMatrix2}
-            title="Matrix B submitted"
+            handleSetMatrix={(e) => handleSetMatrix2(e, "Matrix B submitted")}
           >
             {ordoElements2}
           </CardMatrix.SetMatrix>
         </CardMatrix>
       </div>
-      <ResultButton
-        funcLogic={() => subFunc(matrixA, matrixB)}
-        operationIdentity={"A - B"}
-      />
+      <ResultButton funcLogic={() => subFunc(matrixA, matrixB)} />
       <ResultContainer operationIdentity={"A - B ="} results={subResult} />
     </section>
   );
