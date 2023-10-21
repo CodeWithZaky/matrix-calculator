@@ -5,6 +5,7 @@ import useSettingOrdo from "./useSettingOrdo";
 import useCreateOrdo from "./useCreateOrdo";
 import useSetMatrix from "./useSetMatrix";
 import useResult from "./useResult";
+import useToggle from "./useToggle";
 
 export {
   useAddition,
@@ -14,4 +15,5 @@ export {
   useCreateOrdo,
   useSetMatrix,
   useResult,
+  useToggle,
 };

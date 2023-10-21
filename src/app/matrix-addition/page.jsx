@@ -7,7 +7,10 @@ import {
   useCreateOrdo,
   useSetMatrix,
   useAddition,
+  useToggle,
 } from "@/src/hooks/index";
+import PreviewMode from "@/src/components/layouts/PreviewMode";
+import PreviewButton from "@/src/components/elements/PreviewButton";
 
 const MatrixAddition = () => {
   // setting ordo
@@ -38,46 +41,60 @@ const MatrixAddition = () => {
 
   // ADDITIONAL FUNCTION
   const { addResult, addFunc } = useAddition();
+  // TOGGLE
+  const { Toggle: addToggle, toggled: addToggled } = useToggle();
 
   return (
-    <section className="flex flex-col items-center justify-center w-auto h-auto">
-      <div className="flex flex-col w-full gap-3 sm:flex-row">
-        <CardMatrix>
-          <CardMatrix.Header>MATRIX A</CardMatrix.Header>
-          <CardMatrix.SettingOrdo
-            handleSettingOrdo={(e) =>
-              handleSettingOrdo1(e, "Matrix A's dimensions have been created")
-            }
-            row={row1}
-            col={col1}
-            title={`Matrix A's dimensions have been created`}
-          />
-          <CardMatrix.SetMatrix
-            handleSetMatrix={(e) => handleSetMatrix1(e, "Matrix A submitted")}
-          >
-            {ordoElements1}
-          </CardMatrix.SetMatrix>
-        </CardMatrix>
-        <CardMatrix>
-          <CardMatrix.Header>MATRIX B</CardMatrix.Header>
-          <CardMatrix.SettingOrdo
-            handleSettingOrdo={(e) =>
-              handleSettingOrdo2(e, "Matrix B's dimensions have been created")
-            }
-            row={row2}
-            col={col2}
-            title={`Matrix B's dimensions have been created.`}
-          />
-          <CardMatrix.SetMatrix
-            handleSetMatrix={(e) => handleSetMatrix2(e, "Matrix B submitted")}
-          >
-            {ordoElements2}
-          </CardMatrix.SetMatrix>
-        </CardMatrix>
-      </div>
-      <ResultButton funcLogic={() => addFunc(matrixA, matrixB)} />
-      <ResultContainer operationIdentity={"A + B ="} results={addResult} />
-    </section>
+    <div className="mx-auto px-4 flex flex-col lg:flex-row gap-3">
+      <section className="flex flex-col items-center justify-center w-auto h-auto ">
+        <div className="flex flex-col w-full gap-3 sm:flex-row">
+          <CardMatrix>
+            <CardMatrix.Header>MATRIX A</CardMatrix.Header>
+            <CardMatrix.SettingOrdo
+              handleSettingOrdo={(e) =>
+                handleSettingOrdo1(e, "Matrix A's dimensions have been created")
+              }
+              row={row1}
+              col={col1}
+              title={`Matrix A's dimensions have been created`}
+            />
+            <CardMatrix.SetMatrix
+              handleSetMatrix={(e) => handleSetMatrix1(e, "Matrix A submitted")}
+            >
+              {ordoElements1}
+            </CardMatrix.SetMatrix>
+          </CardMatrix>
+          <CardMatrix>
+            <CardMatrix.Header>MATRIX B</CardMatrix.Header>
+            <CardMatrix.SettingOrdo
+              handleSettingOrdo={(e) =>
+                handleSettingOrdo2(e, "Matrix B's dimensions have been created")
+              }
+              row={row2}
+              col={col2}
+              title={`Matrix B's dimensions have been created.`}
+            />
+            <CardMatrix.SetMatrix
+              handleSetMatrix={(e) => handleSetMatrix2(e, "Matrix B submitted")}
+            >
+              {ordoElements2}
+            </CardMatrix.SetMatrix>
+          </CardMatrix>
+        </div>
+        <ResultButton funcLogic={() => addFunc(matrixA, matrixB)} />
+        <ResultContainer operationIdentity={"A + B ="} results={addResult} />
+      </section>
+      {!addToggled && <PreviewButton toggleFN={addToggle} />}
+      {addToggled && (
+        <PreviewMode
+          toggleFN={addToggle}
+          matrixA={matrixA}
+          matrixB={matrixB}
+          result={addResult}
+          identity="+"
+        />
+      )}
+    </div>
   );
 };
 

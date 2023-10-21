@@ -2,11 +2,15 @@
 import CardMatrix from "@/src/components/fragments/CardMatrix";
 import ResultButton from "@/src/components/elements/ResultButton";
 import ResultContainer from "@/src/components/fragments/ResultContainer";
+import PreviewButton from "@/src/components/elements/PreviewButton";
+import PreviewMode from "@/src/components/layouts/PreviewMode";
+
 import {
   useSettingOrdo,
   useCreateOrdo,
   useSetMatrix,
   useSubtraction,
+  useToggle,
 } from "@/src/hooks/index";
 
 const MatrixReduction = () => {
@@ -37,46 +41,60 @@ const MatrixReduction = () => {
   );
   // REDUCTION FUNCTION
   const { subResult, subFunc } = useSubtraction();
+  //TOGGLE
+  const { Toggle: subToggle, toggled: subToggled } = useToggle();
 
   return (
-    <section className="flex flex-col items-center justify-center w-auto h-auto">
-      <div className="flex flex-col w-full gap-3 sm:flex-row">
-        <CardMatrix>
-          <CardMatrix.Header>MATRIX A</CardMatrix.Header>
-          <CardMatrix.SettingOrdo
-            handleSettingOrdo={(e) =>
-              handleSettingOrdo1(e, "Matrix A's dimensions have been created")
-            }
-            row={row1}
-            col={col1}
-            title={`Matrix A's dimensions have been created`}
-          />
-          <CardMatrix.SetMatrix
-            handleSetMatrix={(e) => handleSetMatrix1(e, "Matrix A submitted")}
-          >
-            {ordoElements1}
-          </CardMatrix.SetMatrix>
-        </CardMatrix>
-        <CardMatrix>
-          <CardMatrix.Header>MATRIX B</CardMatrix.Header>
-          <CardMatrix.SettingOrdo
-            handleSettingOrdo={(e) =>
-              handleSettingOrdo2(e, "Matrix B's dimensions have been created")
-            }
-            row={row2}
-            col={col2}
-            title={`Matrix B's dimensions have been created.`}
-          />
-          <CardMatrix.SetMatrix
-            handleSetMatrix={(e) => handleSetMatrix2(e, "Matrix B submitted")}
-          >
-            {ordoElements2}
-          </CardMatrix.SetMatrix>
-        </CardMatrix>
-      </div>
-      <ResultButton funcLogic={() => subFunc(matrixA, matrixB)} />
-      <ResultContainer operationIdentity={"A - B ="} results={subResult} />
-    </section>
+    <div className="mx-auto px-4 flex flex-col lg:flex-row gap-3">
+      <section className="flex flex-col items-center justify-center w-auto h-auto ">
+        <div className="flex flex-col w-full gap-3 sm:flex-row">
+          <CardMatrix>
+            <CardMatrix.Header>MATRIX A</CardMatrix.Header>
+            <CardMatrix.SettingOrdo
+              handleSettingOrdo={(e) =>
+                handleSettingOrdo1(e, "Matrix A's dimensions have been created")
+              }
+              row={row1}
+              col={col1}
+              title={`Matrix A's dimensions have been created`}
+            />
+            <CardMatrix.SetMatrix
+              handleSetMatrix={(e) => handleSetMatrix1(e, "Matrix A submitted")}
+            >
+              {ordoElements1}
+            </CardMatrix.SetMatrix>
+          </CardMatrix>
+          <CardMatrix>
+            <CardMatrix.Header>MATRIX B</CardMatrix.Header>
+            <CardMatrix.SettingOrdo
+              handleSettingOrdo={(e) =>
+                handleSettingOrdo2(e, "Matrix B's dimensions have been created")
+              }
+              row={row2}
+              col={col2}
+              title={`Matrix B's dimensions have been created.`}
+            />
+            <CardMatrix.SetMatrix
+              handleSetMatrix={(e) => handleSetMatrix2(e, "Matrix B submitted")}
+            >
+              {ordoElements2}
+            </CardMatrix.SetMatrix>
+          </CardMatrix>
+        </div>
+        <ResultButton funcLogic={() => subFunc(matrixA, matrixB)} />
+        <ResultContainer operationIdentity={"A - B ="} results={subResult} />
+      </section>
+      {!subToggled && <PreviewButton toggleFN={subToggle} />}
+      {subToggled && (
+        <PreviewMode
+          toggleFN={subToggle}
+          matrixA={matrixA}
+          matrixB={matrixB}
+          result={subResult}
+          identity="-"
+        />
+      )}
+    </div>
   );
 };
 
