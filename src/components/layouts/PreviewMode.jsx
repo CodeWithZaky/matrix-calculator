@@ -19,7 +19,7 @@ const PreviewMode = ({ toggleFN, matrixA, matrixB, result, identity }) => {
         </div>
       </div>
       <div className="flex flex-col items-start gap-1">
-        <p className="text-slate-900/50">{"result matrix A + matrix B :"}</p>
+        <p className="text-slate-900/50">{`result matrix A ${identity} matrix B :`}</p>
         <ViewResult results={result} />
       </div>
     </section>
