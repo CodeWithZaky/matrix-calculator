@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${font.className}`}>
       <body>
         <Toaster position="top-right" richColors />
-        <div className="flex flex-col items-center justify-between min-h-screen gap-3 bg-gray-300/90 min-w-screen">
+        <div className="min-w-screen flex min-h-screen flex-col items-center justify-between gap-3 bg-gray-300/90">
           <HeaderFooterWrap>{children}</HeaderFooterWrap>
         </div>
       </body>
