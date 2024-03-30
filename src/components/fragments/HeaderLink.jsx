@@ -6,15 +6,15 @@ const HeaderLink = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col items-start w-1/3 gap-1 italic">
+    <nav className="flex w-1/3 flex-col items-start gap-1 italic">
       <Link
-        className="block px-1 italic tracking-wide text-center underline rounded-lg sm:hidden text-slate-200"
+        className="block rounded-lg px-1 text-center italic tracking-wide text-slate-200 underline sm:hidden"
         href={"/"}
       >
         Home
       </Link>
       <Link
-        className={`px-1 rounded-lg tracking-wide underline whitespace-nowrap ${
+        className={`whitespace-nowrap rounded-lg px-1 tracking-wide underline ${
           pathname == "/matrix-addition"
             ? "text-blue-400/90 hover:text-blue-400/95"
             : "text-slate-200 hover:text-slate-200/90"
@@ -24,7 +24,7 @@ const HeaderLink = () => {
         Matrix Addition
       </Link>
       <Link
-        className={`px-1 rounded-lg tracking-wide underline whitespace-nowrap ${
+        className={`whitespace-nowrap rounded-lg px-1 tracking-wide underline ${
           pathname == "/matrix-subtraction"
             ? "text-blue-400/90 hover:text-blue-400/95"
             : "text-slate-200 hover:text-slate-200/90"
@@ -34,7 +34,7 @@ const HeaderLink = () => {
         Matrix Subtraction
       </Link>
       <Link
-        className={`px-1 rounded-lg tracking-wide underline whitespace-nowrap ${
+        className={`whitespace-nowrap rounded-lg px-1 tracking-wide underline ${
           pathname == "/matrix-multiplication"
             ? "text-blue-400/90 hover:text-blue-400/95"
             : "text-slate-200 hover:text-slate-200/90"

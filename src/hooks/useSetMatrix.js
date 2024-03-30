@@ -14,7 +14,7 @@ function useSetMatrix(row, col) {
 
     const inputValues = Array.from(
       e.target.querySelectorAll(".PROCESS__INPUT"),
-      (input) => input.value
+      (input) => input.value,
     );
 
     // Validate input values
@@ -27,7 +27,7 @@ function useSetMatrix(row, col) {
     }
 
     const arr2DInputResults = Array.from({ length: row }, (_, rowIndex) =>
-      inputValues.slice(rowIndex * col, (rowIndex + 1) * col).map(Number)
+      inputValues.slice(rowIndex * col, (rowIndex + 1) * col).map(Number),
     );
 
     setMatrix(arr2DInputResults);

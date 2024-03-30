@@ -4,7 +4,7 @@ import HeaderLink from "@/src/components/fragments/HeaderLink";
 
 const HeaderPage = ({ title }) => {
   return (
-    <header className="container flex flex-col items-start justify-between w-full h-full px-3 py-2 sm:flex-row sm:items-center bg-slate-800 rounded-b-md">
+    <header className="container flex h-full w-full flex-col items-start justify-between rounded-b-md bg-slate-800 px-3 py-2 sm:flex-row sm:items-center">
       <HeaderLink />
       <TitleMatrix title={title} />
       <HomeLinkButton />
@@ -16,9 +16,9 @@ export default HeaderPage;
 
 const HomeLinkButton = () => {
   return (
-    <div className="flex items-center justify-end w-1/3">
+    <div className="flex w-1/3 items-center justify-end">
       <Link
-        className="hidden px-3 py-0.5 font-semibold text-center text-white bg-blue-900 border-2 border-blue-300 rounded-md sm:block hover:bg-blue-700 active:bg-slate-200"
+        className="hidden rounded-md border-2 border-blue-300 bg-blue-900 px-3 py-0.5 text-center font-semibold text-white hover:bg-blue-700 active:bg-slate-200 sm:block"
         href={"/"}
       >
         Home
@@ -29,7 +29,7 @@ const HomeLinkButton = () => {
 
 const TitleMatrix = ({ title }) => {
   return (
-    <h1 className="hidden w-1/3 font-bold text-center uppercase transition-all sm:block sm:text-2xl md:text-3xl lg:text-4xl text-slate-100">
+    <h1 className="hidden w-1/3 text-center font-bold uppercase text-slate-100 transition-all sm:block sm:text-2xl md:text-3xl lg:text-4xl">
       {title}
     </h1>
   );

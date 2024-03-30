@@ -21,15 +21,15 @@ const NavHome = () => {
   ];
 
   return (
-    <nav className="flex flex-col md:flex-row justify-center items-center gap-2 mt-10 w-[80%]">
+    <nav className="mt-10 flex w-[80%] flex-col items-center justify-center gap-2 md:flex-row">
       {NavLink.map((item, index) => {
         return (
           <Link
             href={item.href}
             key={index}
-            className="flex flex-col justify-center items-center border-2 border-slate-50 bg-blue-900/90 hover:bg-blue-900 rounded-lg text-center py-3 w-full md:w-[200px] lg:w-[300px] shadow-md hover:shadow-lg shadow-slate-500 hover:shadow-slate-500"
+            className="flex w-full flex-col items-center justify-center rounded-lg border-2 border-slate-50 bg-blue-900/90 py-3 text-center shadow-md shadow-slate-500 hover:bg-blue-900 hover:shadow-lg hover:shadow-slate-500 md:w-[200px] lg:w-[300px]"
           >
-            <h1 className="text-sm font-bold ld:text-lg whitespace-nowrap text-slate-50">
+            <h1 className="ld:text-lg whitespace-nowrap text-sm font-bold text-slate-50">
               {item.label}
             </h1>
             <p className="text-4xl font-bold text-slate-50">{item.symbol}</p>

@@ -32,11 +32,11 @@ const MatrixAddition = () => {
   // set matrix
   const { matrix: matrixA, handleSetMatrix: handleSetMatrix1 } = useSetMatrix(
     row1,
-    col1
+    col1,
   );
   const { matrix: matrixB, handleSetMatrix: handleSetMatrix2 } = useSetMatrix(
     row2,
-    col2
+    col2,
   );
 
   // ADDITIONAL FUNCTION
@@ -45,9 +45,9 @@ const MatrixAddition = () => {
   const { Toggle: addToggle, toggled: addToggled } = useToggle();
 
   return (
-    <div className="mx-auto px-4 flex flex-col lg:flex-row gap-3">
-      <section className="flex flex-col items-center justify-center w-auto h-auto ">
-        <div className="flex flex-col w-full gap-3 sm:flex-row">
+    <div className="mx-auto flex flex-col gap-3 px-4 lg:flex-row">
+      <section className="flex h-auto w-auto flex-col items-center justify-center ">
+        <div className="flex w-full flex-col gap-3 sm:flex-row">
           <CardMatrix>
             <CardMatrix.Header>MATRIX A</CardMatrix.Header>
             <CardMatrix.SettingOrdo

@@ -3,7 +3,7 @@ import SettingOrdoComponent from "./SettingOrdoComponent";
 
 const CardMatrix = ({ children }) => {
   return (
-    <div className="border border-blue-800 rounded bg-slate-200">
+    <div className="rounded border border-blue-800 bg-slate-200">
       {children}
     </div>
   );
@@ -11,7 +11,7 @@ const CardMatrix = ({ children }) => {
 
 const Header = ({ children }) => {
   return (
-    <p className="px-5 text-3xl text-center text-white bg-slate-800">
+    <p className="bg-slate-800 px-5 text-center text-3xl text-white">
       {children}
     </p>
   );
