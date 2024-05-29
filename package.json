@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
-    "daisyui": "^3.5.1",
+    "daisyui": "^4.9.0",
     "npm-run-alias": "^0.0.3",
     "postcss": "^8.4.21",
     "prettier": "^3.2.5",

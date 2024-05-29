@@ -4,16 +4,16 @@ import HeaderFooterWrap from "../components/layouts/HeaderFooterWrap";
 import { Toaster } from "sonner";
 
 const font = Orbitron({
-  weight: "400",
+  weights: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${font.className}`}>
+    <html lang="en" data-theme="cupcake" className={`${font.className}`}>
       <body>
         <Toaster position="top-right" richColors />
-        <div className="min-w-screen flex min-h-screen flex-col items-center justify-between gap-3 bg-gray-300/90">
+        <div className="min-w-screen flex min-h-screen flex-col items-center justify-between gap-3 bg-gray-300">
           <HeaderFooterWrap>{children}</HeaderFooterWrap>
         </div>
       </body>
