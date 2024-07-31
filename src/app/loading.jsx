@@ -1,7 +1,7 @@
 "use client";
 const loading = () => {
   return (
-    <div className="min-w-screen flex min-h-screen flex-row items-center justify-center text-center text-5xl font-semibold">
+    <div className="flex flex-row justify-center items-center min-w-screen min-h-screen font-semibold text-5xl text-center">
       <p>Loading</p>
       <span className="loading loading-ball loading-md" />
       <span className="loading loading-ball loading-md" />

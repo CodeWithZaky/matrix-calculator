@@ -1,6 +1,6 @@
 import { toast } from "sonner";
-import useResult from "./useResult";
 import Swal from "sweetalert2";
+import useResult from "./useResult";
 
 const useAddition = () => {
   const [addResult, setAddResults] = useResult();

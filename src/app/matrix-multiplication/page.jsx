@@ -1,15 +1,15 @@
 "use client";
-import CardMatrix from "@/src/components/fragments/CardMatrix";
-import ResultButton from "@/src/components/elements/ResultButton";
-import ResultContainer from "@/src/components/fragments/ResultContainer";
 import PreviewButton from "@/src/components/elements/PreviewButton";
+import ResultButton from "@/src/components/elements/ResultButton";
+import CardMatrix from "@/src/components/fragments/CardMatrix";
+import ResultContainer from "@/src/components/fragments/ResultContainer";
 import PreviewMode from "@/src/components/layouts/PreviewMode";
 
 import {
-  useSettingOrdo,
-  useSetMatrix,
-  useMultiplication,
   useCreateOrdo,
+  useMultiplication,
+  useSetMatrix,
+  useSettingOrdo,
   useToggle,
 } from "@/src/hooks/index";
 
@@ -45,9 +45,9 @@ const MatrixMultiplication = () => {
   const { Toggle: mulToggle, toggled: mulToggled } = useToggle();
 
   return (
-    <div className="mx-auto flex flex-col gap-3 px-4 lg:flex-row">
-      <section className="flex h-auto w-auto flex-col items-center justify-center ">
-        <div className="flex w-full flex-col gap-3 sm:flex-row">
+    <div className="flex lg:flex-row flex-col gap-3 mx-auto px-4">
+      <section className="flex flex-col justify-center items-center w-auto h-auto">
+        <div className="flex sm:flex-row flex-col gap-3 w-full">
           <CardMatrix>
             <CardMatrix.Header>MATRIX A</CardMatrix.Header>
             <CardMatrix.SettingOrdo

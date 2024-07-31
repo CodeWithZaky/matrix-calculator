@@ -1,6 +1,6 @@
-import useResult from "./useResult";
-import Swal from "sweetalert2";
 import { toast } from "sonner";
+import Swal from "sweetalert2";
+import useResult from "./useResult";
 
 const useMultiplication = () => {
   const [mulResult, setMulResults] = useResult();

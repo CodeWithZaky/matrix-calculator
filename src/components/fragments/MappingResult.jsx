@@ -1,12 +1,12 @@
 const MappingResult = (props) => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col justify-center items-center">
       {props.results.map((m, n) => (
-        <div key={n} className="flex items-center justify-center">
+        <div key={n} className="flex justify-center items-center">
           {m.map((x, y) => (
             <div
               key={y}
-              className=" flex min-w-[50px] items-center justify-center rounded-lg border border-black bg-white text-xl font-semibold text-slate-900"
+              className="flex justify-center items-center bg-white border border-black rounded-lg min-w-[50px] font-semibold text-slate-900 text-xl"
             >
               {x}
             </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import Input from "../components/elements/Input";
 
 function useCreateOrdo(row, col) {

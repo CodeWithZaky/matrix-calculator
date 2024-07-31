@@ -6,9 +6,9 @@ const HeaderLink = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex w-1/3 flex-col items-start gap-1 italic">
+    <nav className="flex flex-col items-start gap-1 w-1/3 italic">
       <Link
-        className="block rounded-lg px-1 text-center italic tracking-wide text-slate-200 underline sm:hidden"
+        className="block sm:hidden px-1 rounded-lg text-center text-slate-200 underline italic tracking-wide"
         href={"/"}
       >
         Home

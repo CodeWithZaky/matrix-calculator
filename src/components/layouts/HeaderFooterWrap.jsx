@@ -1,7 +1,7 @@
 "use client";
-import { usePathname } from "next/navigation";
-import Header from "@/src/components/layouts/Header";
 import Footer from "@/src/components/layouts/Footer";
+import Header from "@/src/components/layouts/Header";
+import { usePathname } from "next/navigation";
 
 const headerFooterMap = {
   "/matrix-addition": { title: "matrix addition" },

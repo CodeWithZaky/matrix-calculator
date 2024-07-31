@@ -1,19 +1,19 @@
 import useAddition from "./useAddition";
-import useMultiplication from "./useMultiplication";
-import useSubtraction from "./useSubtraction";
-import useSettingOrdo from "./useSettingOrdo";
 import useCreateOrdo from "./useCreateOrdo";
-import useSetMatrix from "./useSetMatrix";
+import useMultiplication from "./useMultiplication";
 import useResult from "./useResult";
+import useSetMatrix from "./useSetMatrix";
+import useSettingOrdo from "./useSettingOrdo";
+import useSubtraction from "./useSubtraction";
 import useToggle from "./useToggle";
 
 export {
   useAddition,
-  useSettingOrdo,
-  useMultiplication,
-  useSubtraction,
   useCreateOrdo,
-  useSetMatrix,
+  useMultiplication,
   useResult,
+  useSetMatrix,
+  useSettingOrdo,
+  useSubtraction,
   useToggle,
 };

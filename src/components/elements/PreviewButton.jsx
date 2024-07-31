@@ -2,7 +2,7 @@ const PreviewButton = ({ toggleFN }) => {
   return (
     <div
       onClick={() => toggleFN()}
-      className="h-fit w-fit cursor-pointer rounded-sm border border-slate-400 px-2 text-slate-500 hover:bg-slate-100"
+      className="border-slate-400 hover:bg-slate-100 px-2 border rounded-sm w-fit h-fit text-slate-500 cursor-pointer"
     >
       {"> Preview"}
     </div>

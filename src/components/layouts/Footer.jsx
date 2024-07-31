@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
-    <footer className="container flex w-full flex-col justify-between rounded-t bg-slate-900 p-3 text-xs text-slate-200 sm:flex-row sm:text-sm">
+    <footer className="flex sm:flex-row flex-col justify-between bg-slate-900 p-3 rounded-t w-full text-slate-200 text-xs sm:text-sm container">
       <p className="w-1/3 text-start sm:text-start">Ahmad Zaky Ubaidillah</p>
-      <p className="text-star w-1/3 sm:text-center">MATRIX PROJECT</p>
-      <p className="text-star w-1/3 sm:text-end">Copyright@ 2023</p>
+      <p className="w-1/3 text-star sm:text-center">MATRIX PROJECT</p>
+      <p className="w-1/3 text-star sm:text-end">Copyright@ 2023</p>
     </footer>
   );
 };

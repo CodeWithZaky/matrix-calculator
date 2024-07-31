@@ -7,11 +7,11 @@ export const metadata = {
 };
 export default function Home() {
   return (
-    <main className="container mx-auto flex min-h-screen min-w-full flex-col items-center justify-center font-bold  text-blue-900">
-      <div className="flex w-fit flex-col items-start justify-center">
+    <main className="flex flex-col justify-center items-center mx-auto min-w-full min-h-screen font-bold text-blue-900 container">
+      <div className="flex flex-col justify-center items-start w-fit">
         <h1 className="mb-1 text-center text-xl">MATRIX CALCULATOR</h1>
         <Link target="_blank" href={"https://zaky.vercel.app"}>
-          <h1 className="mb-1 text-center text-4xl underline sm:text-3xl">
+          <h1 className="mb-1 text-4xl text-center sm:text-3xl underline">
             AHMAD ZAKY UBAIDILLAH
           </h1>
         </Link>

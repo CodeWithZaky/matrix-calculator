@@ -21,18 +21,18 @@ const NavHome = () => {
   ];
 
   return (
-    <nav className="mt-10 flex w-full flex-col items-center justify-start gap-2 md:flex-row">
+    <nav className="flex md:flex-row flex-col justify-start items-center gap-2 mt-10 w-full">
       {NavLink.map((item, index) => {
         return (
           <Link
             href={item.href}
             key={index}
-            className="flex w-full flex-col items-center justify-center rounded-lg border-2 border-slate-50 bg-blue-900/90 py-3 text-center shadow-lg shadow-slate-500 hover:bg-blue-900 md:w-[200px] lg:w-[300px]"
+            className="flex flex-col justify-center items-center border-2 border-slate-50 bg-blue-900/90 hover:bg-blue-900 shadow-lg shadow-slate-500 py-3 rounded-lg w-full md:w-[200px] lg:w-[300px] text-center"
           >
-            <h1 className="ld:text-lg whitespace-nowrap text-sm font-bold text-slate-50">
+            <h1 className="font-bold text-slate-50 text-sm ld:text-lg whitespace-nowrap">
               {item.label}
             </h1>
-            <p className="text-4xl font-bold text-slate-50">{item.symbol}</p>
+            <p className="font-bold text-4xl text-slate-50">{item.symbol}</p>
           </Link>
         );
       })}
