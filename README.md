@@ -3,7 +3,7 @@
 ## Ahmad Zaky Ubaidillah
 
 **Feb 2023 - Jul 2023**  
-**2nd semester**
+**College Project (2nd semester)**
 
 [Visit the website](https://matrixcalculator.vercel.app)
 
