@@ -10,7 +10,7 @@ export default function Home() {
     <main className="flex flex-col justify-center items-center mx-auto min-w-full min-h-screen font-bold text-blue-900 container">
       <div className="flex flex-col justify-center items-start w-fit">
         <h1 className="mb-1 text-center text-xl">MATRIX CALCULATOR</h1>
-        <Link target="_blank" href={"https://zaky.vercel.app"}>
+        <Link target="_blank" href={"https://codewithzaky.vercel.app"}>
           <h1 className="mb-1 text-4xl text-center sm:text-3xl underline">
             AHMAD ZAKY UBAIDILLAH
           </h1>
